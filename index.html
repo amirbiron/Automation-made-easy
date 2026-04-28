@@ -19,6 +19,8 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 @keyframes rwOut{to{opacity:0;transform:translateY(-8px)}}
 @keyframes rwIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @keyframes hrRipple{to{width:320px;height:320px;opacity:0}}
+@keyframes tgFly{0%,100%{transform:translateY(0) rotate(-12deg)}50%{transform:translateY(-4px) rotate(-18deg)}}
+@keyframes tgShine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 @keyframes popIn{from{opacity:0;transform:scale(.82) translateY(24px)}to{opacity:1;transform:scale(1) translateY(0)}}
 
 /* NAV */
@@ -60,6 +62,14 @@ h1{font-size:clamp(2.8rem,5.5vw,4.4rem);font-weight:900;line-height:1.08;margin-
 .rw-exit{animation:rwOut .22s ease forwards}
 .rw-enter{animation:rwIn .3s ease forwards}
 .hr-ripple{position:absolute;border-radius:50%;background:rgba(37,211,102,.2);width:8px;height:8px;animation:hrRipple .6s ease-out forwards;transform:translate(-50%,-50%);pointer-events:none}
+.tg-bubble{display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,rgba(34,158,217,.12),rgba(139,92,246,.12));border:1.5px solid rgba(34,158,217,.4);border-radius:50px;padding:11px 20px;cursor:pointer;position:relative;overflow:hidden;transition:all .3s;text-decoration:none;margin:.6rem 0 1.3rem;justify-content:center;color:var(--t)}
+.tg-bubble:hover{border-color:rgba(34,158,217,.75);transform:scale(1.025);box-shadow:0 0 26px rgba(34,158,217,.28)}
+.tg-bubble:active{transform:scale(.98)}
+.tg-bubble::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);transform:translateX(-100%);animation:tgShine 3.2s linear infinite;pointer-events:none}
+.tg-live-dot{width:7px;height:7px;border-radius:50%;background:#22C55E;animation:bdot 1.5s infinite;flex-shrink:0;box-shadow:0 0 8px rgba(34,197,94,.7)}
+.tg-icon{display:inline-flex;width:20px;height:20px;flex-shrink:0;color:#229ED9;animation:tgFly 2.4s ease-in-out infinite;transform-origin:center}
+.tg-rot-word{font-size:.98rem;font-weight:800;background:linear-gradient(135deg,#229ED9,#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;text-align:center;min-width:0}
+.tg-arrow{flex-shrink:0;color:#229ED9}
 /* Checkmarks */
 .h-proofs{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.8rem}
 .h-proof-item{display:flex;align-items:center;gap:.7rem;font-size:.96rem;color:rgba(240,240,250,.75)}
@@ -124,7 +134,8 @@ h1{font-size:clamp(2.8rem,5.5vw,4.4rem);font-weight:900;line-height:1.08;margin-
 .p-send-btn{width:38px;height:38px;min-width:38px;border-radius:50%;background:var(--g);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(37,211,102,.4);transition:all .2s}
 .p-send-btn:hover{background:var(--g2);transform:scale(1.08)}
 .p-send-btn svg{fill:#000;width:16px;height:16px;transform:rotate(180deg)}
-.live-badge{position:absolute;top:-14px;right:-10px;background:#1C1C30;border:1px solid rgba(139,92,246,.4);border-radius:50px;padding:4px 10px;font-size:.65rem;font-weight:700;display:flex;align-items:center;gap:5px;color:#C4B5FD;z-index:10}
+.live-badge{position:absolute;top:-14px;right:-10px;background:#1C1C30;border:1px solid rgba(139,92,246,.4);border-radius:50px;padding:4px 10px;font-size:.65rem;font-weight:700;display:flex;align-items:center;gap:5px;color:#C4B5FD;z-index:10;text-decoration:none;transition:all .25s;cursor:pointer}
+.live-badge:hover{border-color:rgba(34,158,217,.7);color:#7DD3FC;box-shadow:0 0 14px rgba(34,158,217,.35)}
 .live-red{width:7px;height:7px;border-radius:50%;background:#EF4444;animation:bdot 1.5s infinite}
 /* floating chips */
 .chip{position:absolute;z-index:20;background:rgba(15,15,30,.85);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:7px 13px;font-size:.7rem;font-weight:600;display:flex;align-items:center;gap:6px;white-space:nowrap;color:var(--t);animation:pfloat 3.5s ease-in-out infinite}
@@ -385,7 +396,7 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
     <!-- PHONE (LEFT) -->
     <div class="hm reveal">
       <div class="phone-wrap">
-        <div class="live-badge"><span class="live-red"></span> LIVE · נסה אותי</div>
+        <a href="https://ai-business-chatbot-zqmr.onrender.com" target="_blank" rel="noopener" class="live-badge"><span class="live-red"></span> LIVE · נסה אותי בטלגרם</a>
         <div class="chip chip-a">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
           תור נקבע אוטומטית
@@ -519,6 +530,12 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
       <div class="sc-ico gr"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
       <h3>בוט וואטסאפ / טלגרם חכם לעסק</h3>
       <p>בוט AI שעובד 24/7 — קובע תורים, עונה על שאלות, שולח תזכורות ומנהל את לוח העבודה שלך בלי שתגע בנייד.</p>
+      <a href="https://ai-business-chatbot-zqmr.onrender.com" target="_blank" rel="noopener" class="tg-bubble" id="tgBubble">
+        <span class="tg-live-dot"></span>
+        <span class="tg-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.24 3.64 11.95c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></span>
+        <span class="tg-rot-word" id="tgRotWord">נסה אותי</span>
+        <svg class="tg-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
       <ul class="fl">
         <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>קביעת תורים אוטומטית</li>
         <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>מענה 24/7 לשאלות לקוחות</li>
@@ -782,6 +799,17 @@ if(rw){
     rw.classList.add('rw-exit');
     setTimeout(()=>{wi=(wi+1)%words.length;rw.textContent=words[wi];rw.classList.remove('rw-exit');rw.classList.add('rw-enter');setTimeout(()=>rw.classList.remove('rw-enter'),350)},220);
   },2200);
+}
+
+// ROTATING TEXT — TELEGRAM BOT BUBBLE
+const tgWords=['נסה אותי','צ׳אטבוט של אוטומציה בקלות','שאל על שירותי העסק'];
+let tgi=0;
+const tgRw=document.getElementById('tgRotWord');
+if(tgRw){
+  setInterval(()=>{
+    tgRw.classList.add('rw-exit');
+    setTimeout(()=>{tgi=(tgi+1)%tgWords.length;tgRw.textContent=tgWords[tgi];tgRw.classList.remove('rw-exit');tgRw.classList.add('rw-enter');setTimeout(()=>tgRw.classList.remove('rw-enter'),350)},220);
+  },2600);
 }
 
 // BUBBLE RIPPLE
