@@ -47,8 +47,8 @@ nav.s{background:rgba(7,7,15,.92);backdrop-filter:blur(20px);border-bottom:1px s
 .hm{order:2;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1.4rem}
 .h-pre{font-size:clamp(.9rem,1.3vw,1.05rem);color:var(--m);margin-bottom:1rem;font-weight:500;display:flex;align-items:center;gap:.6rem}
 .h-pre::before{content:'';width:28px;height:2px;background:linear-gradient(90deg,var(--pu),var(--g));border-radius:2px;flex-shrink:0}
-h1{font-size:clamp(2.8rem,5.5vw,4.4rem);font-weight:900;line-height:1.08;margin-bottom:.4rem;letter-spacing:-2.5px}
-.h1-line2{display:block;font-size:clamp(3.2rem,6.5vw,5.2rem);font-weight:900;letter-spacing:-3px;line-height:1.04}
+h1{font-size:clamp(1.9rem,5.5vw,4.4rem);font-weight:900;line-height:1.08;margin-bottom:.4rem;letter-spacing:-2.5px}
+.h1-line2{display:block;font-size:clamp(2.2rem,6.5vw,5.2rem);font-weight:900;letter-spacing:-3px;line-height:1.04}
 .g-text{background:linear-gradient(135deg,var(--g) 30%,#7FFFA0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .pu-text{background:linear-gradient(135deg,#A78BFA,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .h-sub{font-size:clamp(1.05rem,1.5vw,1.2rem);color:rgba(240,240,250,.68);margin:1.4rem 0 0;line-height:1.9;max-width:560px}
@@ -373,6 +373,25 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
   .cta-btns{align-items:center}
   .fb-bot{flex-direction:column;text-align:center}
   .btn-p,.btn-s{font-size:.9rem;padding:.75rem 1.5rem}
+}
+@media(max-width:480px){
+  section{padding:3rem 4%}
+  #hero{padding:72px 4% 32px;min-height:auto}
+  h1{letter-spacing:-1.5px}
+  .h1-line2{letter-spacing:-1.5px}
+  .phone{width:200px;height:420px}
+  .hr-bubble{padding:9px 18px;min-width:0}
+  .hr-bubble #rotWord{font-size:.95rem}
+  .tg-bubble{padding:9px 14px!important}
+  .tg-rot-word{font-size:.85rem}
+  .tg-icon{width:17px;height:17px}
+  .sg2{grid-template-columns:1fr;gap:1rem}
+  .pr{padding:1.5rem}
+  .sc{padding:1.8rem}
+  .bg-card{padding:1.4rem}
+  .stag{font-size:.7rem}
+  h2{letter-spacing:-.5px}
+  .live-badge{font-size:.6rem;padding:3px 8px}
 }
 </style>
 </head>
