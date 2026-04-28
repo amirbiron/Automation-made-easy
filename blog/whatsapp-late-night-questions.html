@@ -328,9 +328,15 @@
   .toc ol {
     list-style: none;
     counter-reset: toc;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px 32px;
+  }
+
+  @media (min-width: 720px) {
+    .toc ol {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   .toc ol li {
