@@ -62,7 +62,7 @@ h1{font-size:clamp(2.8rem,5.5vw,4.4rem);font-weight:900;line-height:1.08;margin-
 .rw-exit{animation:rwOut .22s ease forwards}
 .rw-enter{animation:rwIn .3s ease forwards}
 .hr-ripple{position:absolute;border-radius:50%;background:rgba(37,211,102,.2);width:8px;height:8px;animation:hrRipple .6s ease-out forwards;transform:translate(-50%,-50%);pointer-events:none}
-.tg-bubble{display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,rgba(34,158,217,.12),rgba(139,92,246,.12));border:1.5px solid rgba(34,158,217,.4);border-radius:50px;padding:11px 20px;cursor:pointer;position:relative;overflow:hidden;transition:all .3s;text-decoration:none;margin:.6rem 0 1.3rem;justify-content:center;color:var(--t)}
+.tg-bubble{display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,rgba(34,158,217,.12),rgba(139,92,246,.12));border:1.5px solid rgba(34,158,217,.4);border-radius:50px;padding:11px 20px;cursor:pointer;position:relative;overflow:hidden;transition:all .3s;text-decoration:none;width:fit-content;max-width:100%;margin:.6rem auto 1.3rem;justify-content:center;color:var(--t)}
 .tg-bubble:hover{border-color:rgba(34,158,217,.75);transform:scale(1.025);box-shadow:0 0 26px rgba(34,158,217,.28)}
 .tg-bubble:active{transform:scale(.98)}
 .tg-bubble::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);transform:translateX(-100%);animation:tgShine 3.2s linear infinite;pointer-events:none}
