@@ -235,13 +235,20 @@ h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-1px;marg
 
 /* TESTIMONIALS */
 #test{background:var(--bg2)}
-.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;align-items:start}
 .tc{background:var(--card);border:1px solid var(--cb);border-radius:20px;padding:1.8rem;transition:all .35s;position:relative}
 .tc:hover{background:var(--ch);border-color:rgba(139,92,246,.2);transform:translateY(-4px)}
 .tc-q{position:absolute;top:1rem;left:1.2rem;font-size:3rem;font-weight:900;color:rgba(139,92,246,.12);line-height:1;pointer-events:none}
 .tc-stars{display:flex;gap:3px;margin-bottom:.8rem}.tc-stars svg{fill:#F5A623;width:14px;height:14px}
 .tc-txt{font-size:.88rem;color:var(--m);line-height:1.8;margin-bottom:1.2rem;font-style:italic}
-.tc-author{display:flex;align-items:center;gap:.7rem}
+.tc-full{display:none;white-space:pre-line}
+.tc.expanded .tc-preview{display:none}
+.tc.expanded .tc-full{display:block}
+.tc-toggle{margin-top:.5rem;background:none;border:1px solid var(--cb);color:var(--pu);font-weight:700;font-size:.78rem;cursor:pointer;font-family:inherit;padding:.5rem .9rem;border-radius:50px;display:inline-flex;align-items:center;gap:6px;transition:all .2s}
+.tc-toggle:hover{background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.4);color:#A78BFA}
+.tc-toggle-arrow{display:inline-block;transition:transform .25s;font-size:.7rem}
+.tc.expanded .tc-toggle-arrow{transform:rotate(180deg)}
+.tc-author{display:flex;align-items:center;gap:.7rem;margin-top:1rem}
 .tc-ava{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0}
 .tc-ava.a{background:linear-gradient(135deg,var(--g),#1a7040);color:#fff}
 .tc-ava.b{background:linear-gradient(135deg,var(--pu),#4338ca);color:#fff}
@@ -632,9 +639,40 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
   <div class="reveal"><div class="stag"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg> לקוחות מספרים</div>
   <h2>לא אנחנו אומרים — הם אומרים</h2></div>
   <div class="tg">
-    <div class="tc reveal" style="transition-delay:.1s"><div class="tc-q">"</div><div class="tc-stars"><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div><p class="tc-txt">"הבוט חסך לי לפחות 2 שעות ביום. לקוחות קובעים תורים לבד, מקבלים תזכורות — ואני לא נוגע בנייד. שינוי חיים ממש!"</p><div class="tc-author"><div class="tc-ava a">מ</div><div><div class="tc-name">מוטי כהן</div><div class="tc-role">מספרה, תל אביב</div></div></div></div>
-    <div class="tc reveal" style="transition-delay:.2s"><div class="tc-q">"</div><div class="tc-stars"><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div><p class="tc-txt">"האתר שבנו לנו מעבר לכל הציפיות. מקצועי, מהיר ומביא לידים. תוך שבוע מהשקה כבר קיבלנו פניות מגוגל."</p><div class="tc-author"><div class="tc-ava b">ש</div><div><div class="tc-name">שרה לוי</div><div class="tc-role">קליניקה לאסתטיקה</div></div></div></div>
-    <div class="tc reveal" style="transition-delay:.3s"><div class="tc-q">"</div><div class="tc-stars"><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div><p class="tc-txt">"חשבתי שאוטומציה זה מורכב ויקר. בפועל — שיחה אחת, שבועיים עבודה, ועכשיו הכל רץ לבד. שווה כל שקל."</p><div class="tc-author"><div class="tc-ava c">ד</div><div><div class="tc-name">דן אברהם</div><div class="tc-role">סטודיו לכושר</div></div></div></div>
+    <div class="tc reveal" style="transition-delay:.1s">
+      <div class="tc-q">"</div>
+      <div class="tc-stars"><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+      <p class="tc-txt tc-preview">"אמיר לקח את הרעיון שלי והפך אותו לאתר שעונה בדיוק על מה שדמיינתי… העבודה הייתה מהירה, נעימה ומקצועית. ממליצה בחום!"</p>
+      <p class="tc-txt tc-full">"עבדתי עם אמיר בירון על יצירת אתר שמטרתו לעזור לילדים ולמשפחות לארגן סדר יום בתקופה המאתגרת שבה אין שגרה ברורה. היה לי חשוב שהאתר יהיה פשוט, נעים וברור לשימוש גם לילדים וגם להורים.
+
+אמיר לקח את החומרים והרעיון שכתבתי והפך אותם לאתר שעונה בדיוק על מה שדמיינתי, כמעט בלי לדרוש ממני תהליך מורכב או הרבה התעסקות מצידי. לאורך כל הדרך הוא היה קשוב, זמין מאוד לבקשות ותיקונים, והציע רעיונות לשיפור שהפכו את האתר לטוב ומדויק יותר.
+
+העבודה הייתה מהירה, נעימה ומקצועית, וכל שינוי שביקשתי טופל במהירות. התוצאה הסופית היא אתר נוח, ברור ומותאם למטרה שלו — לעזור למשפחות בתקופה מורכבת.
+
+אני ממליצה בחום על אמיר לכל מי שמחפש מישהו מקצועי, יצירתי ונעים לעבוד איתו."</p>
+      <button class="tc-toggle" type="button"><span class="tc-toggle-text">קרא את הביקורת המלאה</span> <span class="tc-toggle-arrow">▾</span></button>
+      <div class="tc-author"><div class="tc-ava a">מ</div><div><div class="tc-name">מיזם חברתי</div><div class="tc-role">אתר שגרה לזמני חירום</div></div></div>
+    </div>
+    <div class="tc reveal" style="transition-delay:.2s">
+      <div class="tc-q">"</div>
+      <div class="tc-stars"><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+      <p class="tc-txt tc-preview">"אני ממליץ בחום על אמיר. אדם מקצועי, אמין ונעים לעבוד איתו… הוא מביא איתו יכולת מצוינת לפתור בעיות בצורה יעילה וחכמה."</p>
+      <p class="tc-txt tc-full">"אני ממליץ בחום על אמיר. אדם מקצועי, אמין ונעים לעבוד איתו. הוא מביא איתו גישה רצינית לעבודה, תשומת לב לפרטים ויכולת מצוינת לפתור בעיות בצורה יעילה וחכמה. החוויה לעבוד איתו הייתה מצוינת ואני בהחלט ממליץ עליו."</p>
+      <button class="tc-toggle" type="button"><span class="tc-toggle-text">קרא את הביקורת המלאה</span> <span class="tc-toggle-arrow">▾</span></button>
+      <div class="tc-author"><div class="tc-ava b">ל</div><div><div class="tc-name">לקוח עסקי</div><div class="tc-role">מערכת ניהול משלוחים (WhatsApp & Telegram)</div></div></div>
+    </div>
+    <div class="tc reveal" style="transition-delay:.3s">
+      <div class="tc-q">"</div>
+      <div class="tc-stars"><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+      <p class="tc-txt tc-preview">"מתוך ניסיון אמיתי בעבודה משותפת על פרויקט ללקוח עסקי. אמיר יודע להקשיב, להבין בדיוק מה צריך, ולבצע מהר… והכי חשוב בעיניי — יש לו הבנה של צד המשתמש, ורואים את זה בתוצאה."</p>
+      <p class="tc-txt tc-full">"ממליץ על אמיר מכל הלב, מתוך ניסיון אמיתי בעבודה משותפת על פרויקט ללקוח עסקי. אמיר יודע להקשיב, להבין בדיוק מה צריך, ולבצע מהר. וזה סופר חשוב במיוחד כשעובדים עם לקוחות שלא מגיעים מהעולם הטכני.
+
+הוא בונה דברים פשוטים ונוחים לשימוש, כאלה שכל אחד יכול להסתדר איתם בלי להסתבך. חשוב לא פחות, אמיר לוקח אחריות על כל התהליך מההתחלה ועד הסוף, ולא משאיר דברים באוויר.
+
+כשעולות בעיות, הוא פותר אותן מהר, בצורה חכמה, ותמיד עומד בזמנים. והכי חשוב בעיניי — יש לו הבנה של צד המשתמש, ורואים את זה בתוצאה. ממליץ בחום."</p>
+      <button class="tc-toggle" type="button"><span class="tc-toggle-text">קרא את הביקורת המלאה</span> <span class="tc-toggle-arrow">▾</span></button>
+      <div class="tc-author"><div class="tc-ava c">W</div><div><div class="tc-name">WeRAI</div><div class="tc-role">מתאם לקוחות · בינה עסקית לעסקים קטנים</div></div></div>
+    </div>
   </div>
 </div></section>
 
@@ -849,6 +887,15 @@ document.querySelectorAll('.tg-rot-word').forEach(el=>{
     el.classList.add('rw-exit');
     setTimeout(()=>{i=(i+1)%tgWords.length;el.textContent=tgWords[i];el.classList.remove('rw-exit');el.classList.add('rw-enter');setTimeout(()=>el.classList.remove('rw-enter'),350)},220);
   },2600);
+});
+
+// TESTIMONIAL EXPAND
+document.querySelectorAll('.tc-toggle').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const card=btn.closest('.tc');
+    const expanded=card.classList.toggle('expanded');
+    btn.querySelector('.tc-toggle-text').textContent=expanded?'הצג פחות':'קרא את הביקורת המלאה';
+  });
 });
 
 // BUBBLE RIPPLE
