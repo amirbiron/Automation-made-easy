@@ -307,57 +307,6 @@
     color: var(--green);
   }
 
-  /* TOC */
-  .toc {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px 28px;
-    margin-bottom: 44px;
-  }
-
-  .toc-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text-dim);
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-
-  .toc ol {
-    list-style: none;
-    counter-reset: toc;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px 32px;
-  }
-
-  @media (min-width: 720px) {
-    .toc ol {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: repeat(4, auto);
-      grid-auto-flow: column;
-    }
-  }
-
-  .toc ol li {
-    counter-increment: toc;
-    font-size: 14px;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .toc ol li::before {
-    content: counter(toc, decimal-leading-zero);
-    font-size: 11px;
-    color: var(--accent);
-    font-weight: 700;
-    min-width: 22px;
-  }
-
   /* FOOTER */
   .post-footer {
     margin-top: 56px;
@@ -434,20 +383,6 @@
 
 <!-- ARTICLE -->
 <div class="container">
-
-  <!-- TOC -->
-  <nav class="toc">
-    <div class="toc-title">תוכן העניינים</div>
-    <ol>
-      <li>הטלפון מתנדנד בשעה 11 בלילה</li>
-      <li>"כמה עולה?" — הליד שמחכה לך</li>
-      <li>"יש לכם מקום ל...?" — זמינות בזמן אמת</li>
-      <li>"איפה אתם נמצאים?" — כתובת וניווט</li>
-      <li>"מה כולל השירות?" — לפני שמחליטים</li>
-      <li>"אפשר לקבוע תור?" — ההזמנה שקורית בלעדיך</li>
-      <li>מה קורה לעסקים שעונים מהר</li>
-    </ol>
-  </nav>
 
   <!-- OPENING -->
   <h2>📱 הטלפון מתנדנד בשעה 11 בלילה</h2>
