@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>בלוג — אוטומציה בקלות</title>
+<meta name="description" content="מאמרים ותובנות על אוטומציה, בוטים, וניהול עסקים קטנים בעידן ה-AI.">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07070F;--bg2:#0C0C1A;--card:rgba(255,255,255,.035);--cb:rgba(255,255,255,.075);--ch:rgba(255,255,255,.06);--g:#25D366;--pu:#8B5CF6;--bl:#3B82F6;--t:#F0F0FA;--m:rgba(240,240,250,.5);--m2:rgba(240,240,250,.28)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--t);line-height:1.6;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 50% at 85% 10%,rgba(139,92,246,.08),transparent),radial-gradient(ellipse 50% 60% at 10% 80%,rgba(59,130,246,.06),transparent);pointer-events:none;z-index:0}
+a{color:inherit;text-decoration:none}
+nav{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:1rem 6%;background:rgba(7,7,15,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--cb);z-index:50}
+.logo{font-size:1.2rem;font-weight:900;letter-spacing:-.5px;display:inline-flex;flex-direction:column;line-height:1.1}
+.logo em{font-style:normal;font-weight:300}
+.back{display:inline-flex;align-items:center;gap:.4rem;font-size:.92rem;color:var(--m);font-weight:600;padding:.5rem .9rem;border-radius:50px;border:1px solid var(--cb);transition:all .25s}
+.back:hover{border-color:rgba(59,130,246,.4);color:#60a5fa}
+.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:4rem 6% 5rem}
+.head{text-align:center;margin-bottom:3rem}
+.tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(59,130,246,.1);color:#60a5fa;padding:.4rem 1rem;border-radius:50px;font-size:.78rem;font-weight:700;letter-spacing:.6px;border:1px solid rgba(59,130,246,.22);margin-bottom:1.4rem}
+h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;line-height:1.15;letter-spacing:-1.5px;margin-bottom:1.1rem}
+h1 .hl{background:linear-gradient(135deg,#60a5fa,var(--pu));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:1.05rem;color:var(--m);max-width:580px;margin:0 auto;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.6rem;margin-top:3rem}
+.card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--cb);border-radius:20px;padding:1.9rem;transition:all .35s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--bl),transparent);transform:scaleX(0);transition:transform .4s;transform-origin:center}
+.card:hover{background:var(--ch);transform:translateY(-4px);border-color:rgba(59,130,246,.25)}
+.card:hover::before{transform:scaleX(1)}
+.meta{display:flex;align-items:center;gap:.7rem;font-size:.78rem;color:var(--m);margin-bottom:.9rem}
+.tag-s{background:rgba(59,130,246,.12);color:#60a5fa;padding:.2rem .65rem;border-radius:50px;font-weight:700;letter-spacing:.4px}
+.card h3{font-size:1.2rem;font-weight:800;line-height:1.35;margin-bottom:.8rem;color:var(--t)}
+.card p{font-size:.94rem;color:var(--m);line-height:1.65;margin-bottom:1.3rem;flex:1}
+.read{display:inline-flex;align-items:center;gap:.4rem;color:#60a5fa;font-weight:700;font-size:.92rem;margin-top:auto}
+.card:hover .read{gap:.65rem}
+.empty{text-align:center;color:var(--m2);padding:3rem 1rem;font-size:.95rem}
+footer{text-align:center;padding:2rem 6%;font-size:.82rem;color:var(--m2);border-top:1px solid var(--cb);position:relative;z-index:1}
+@media(max-width:600px){nav{padding:.8rem 5%}.wrap{padding:2.5rem 5% 4rem}.card{padding:1.5rem}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../" class="logo"><span>אוטומציה<em> בקלות</em></span></a>
+  <a href="../" class="back"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>חזרה לעמוד הראשי</a>
+</nav>
+<div class="wrap">
+  <div class="head">
+    <span class="tag">📚 הבלוג</span>
+    <h1>מאמרים <span class="hl">ותובנות</span></h1>
+    <p class="sub">טיפים פרקטיים, סטטיסטיקות וסיפורי אמת על אוטומציה, בוטים, ולקוחות בעידן ה-AI.</p>
+  </div>
+  <div class="grid">
+    <a href="whatsapp-late-night-questions.html" class="card">
+      <div class="meta"><span class="tag-s">צ'אטבוט</span><span>6 דק׳ קריאה</span></div>
+      <h3>5 שאלות שלקוחות שואלים אותך בוואטסאפ בשעה 11 בלילה</h3>
+      <p>53% מהלקוחות מצפים לתשובה תוך שעה. מה קורה כשאתה ישן? כל התשובות לשאלות הנפוצות שמגיעות בלילה, ואיך לטפל בהן בלי להיות ער.</p>
+      <span class="read">קרא עוד <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+  </div>
+</div>
+<footer>© 2026 אוטומציה בקלות · <a href="../" style="color:#60a5fa">חזרה לעמוד הראשי</a></footer>
+</body>
+</html>

@@ -335,6 +335,21 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
 .pop-cta svg{fill:#000;width:15px;height:15px}
 .pop-dismiss{background:none;border:none;color:var(--m2);font-size:.8rem;cursor:pointer;font-family:inherit;text-decoration:underline;width:100%;text-align:center;padding:.3rem;transition:color .2s}
 .pop-dismiss:hover{color:var(--m)}
+/* BLOG */
+.bg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2.5rem}
+.bg-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--cb);border-radius:20px;padding:1.8rem;text-decoration:none;color:var(--t);transition:all .35s;position:relative;overflow:hidden}
+.bg-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--bl),transparent);transform:scaleX(0);transition:transform .4s;transform-origin:center}
+.bg-card:hover{background:var(--ch);transform:translateY(-4px);border-color:rgba(59,130,246,.25)}
+.bg-card:hover::before{transform:scaleX(1)}
+.bg-meta{display:flex;align-items:center;gap:.7rem;font-size:.78rem;color:var(--m);margin-bottom:.9rem}
+.bg-meta .bg-tag{background:rgba(59,130,246,.12);color:#60a5fa;padding:.2rem .65rem;border-radius:50px;font-weight:700;letter-spacing:.5px}
+.bg-card h3{font-size:1.15rem;font-weight:800;line-height:1.35;margin-bottom:.7rem;color:var(--t)}
+.bg-card p{font-size:.92rem;color:var(--m);line-height:1.6;margin-bottom:1.2rem;flex:1}
+.bg-read{display:inline-flex;align-items:center;gap:.4rem;color:#60a5fa;font-weight:700;font-size:.9rem;margin-top:auto}
+.bg-card:hover .bg-read{gap:.65rem}
+.bg-all{text-align:center;margin-top:2.5rem}
+.bg-all-btn{display:inline-flex;align-items:center;gap:.5rem;color:var(--t);background:transparent;border:1.5px solid var(--cb);padding:.85rem 2rem;border-radius:50px;font-weight:700;font-size:.95rem;text-decoration:none;transition:all .25s}
+.bg-all-btn:hover{border-color:rgba(59,130,246,.5);background:rgba(59,130,246,.06);color:#60a5fa}
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -373,6 +388,7 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
     <li><a href="#srv">שירותים</a></li>
     <li><a href="#proc">תהליך</a></li>
     <li><a href="#price">מחירים</a></li>
+    <li><a href="#blog">בלוג</a></li>
     <li><a href="#faq">שאלות</a></li>
   </ul>
   <a href="https://wa.me/972543978620?text=%D7%94%D7%99%D7%99%21%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%D7%9D%20%D7%A9%D7%9C%D7%9B%D7%9D" class="nb">
@@ -385,6 +401,7 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
   <a href="#srv">שירותים</a>
   <a href="#proc">איך זה עובד</a>
   <a href="#price">מחירים</a>
+  <a href="#blog">בלוג</a>
   <a href="#faq">שאלות נפוצות</a>
   <a href="https://wa.me/972543978620?text=%D7%94%D7%99%D7%99%21%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%D7%9D%20%D7%A9%D7%9C%D7%9B%D7%9D" class="nb" style="text-align:center;justify-content:center">שוחח עכשיו</a>
 </div>
@@ -662,6 +679,21 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
       <a href="https://wa.me/972543978620?text=%D7%94%D7%99%D7%99%21%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%D7%9D%20%D7%A9%D7%9C%D7%9B%D7%9D" class="pr-btn o">שוחח איתנו</a>
     </div>
   </div>
+</div></section>
+
+<!-- BLOG -->
+<section id="blog"><div class="c">
+  <div class="reveal"><div class="stag"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg> מהבלוג</div>
+  <h2>מאמרים ותובנות</h2><p class="sub">כתבות קצרות וטיפים פרקטיים על אוטומציה, בוטים ולקוחות — בלי מילים מיותרות.</p></div>
+  <div class="bg-grid">
+    <a href="blog/whatsapp-late-night-questions.html" class="bg-card reveal" style="transition-delay:.1s">
+      <div class="bg-meta"><span class="bg-tag">צ'אטבוט</span><span>6 דק׳ קריאה</span></div>
+      <h3>5 שאלות שלקוחות שואלים אותך בוואטסאפ בשעה 11 בלילה</h3>
+      <p>53% מהלקוחות מצפים לתשובה תוך שעה. מה קורה כשאתה ישן? כל התשובות לשאלות הנפוצות שמגיעות בלילה, ואיך לטפל בהן בלי להיות ער.</p>
+      <span class="bg-read">קרא עוד <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+  </div>
+  <div class="bg-all"><a href="blog/" class="bg-all-btn">כל המאמרים <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
 </div></section>
 
 <!-- FAQ -->

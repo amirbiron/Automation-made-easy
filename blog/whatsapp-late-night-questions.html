@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 שאלות שלקוחות שואלים בוואטסאפ בשעה 11 בלילה | אוטומציה בקלות</title>
+<meta name="description" content="53% מהלקוחות מצפים לתשובה תוך שעה. מה קורה כשאתה ישן? כל התשובות לשאלות הנפוצות שמגיעות בלילה, ואיך לטפל בהן בלי להיות ער.">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #181c27;
+    --surface2: #1f2437;
+    --border: #2c3349;
+    --accent: #3b82f6;
+    --accent-light: #60a5fa;
+    --green: #34d399;
+    --orange: #fb923c;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --text-dim: #4b5563;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Heebo', sans-serif;
+    font-size: 17px;
+    line-height: 1.85;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(160deg, #1a2744 0%, #0f1117 60%);
+    border-bottom: 1px solid var(--border);
+    padding: 64px 24px 52px;
+    text-align: center;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(59,130,246,0.15);
+    color: var(--accent-light);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(59,130,246,0.3);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(24px, 5vw, 40px);
+    font-weight: 900;
+    line-height: 1.25;
+    max-width: 720px;
+    margin: 0 auto 20px;
+    color: #fff;
+  }
+
+  .hero h1 span {
+    color: var(--accent-light);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 540px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 13px;
+    color: var(--text-dim);
+    flex-wrap: wrap;
+  }
+
+  .hero-meta span { display: flex; align-items: center; gap: 5px; }
+
+  /* CONTAINER */
+  .container {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 52px 24px 80px;
+  }
+
+  /* PROSE */
+  p {
+    margin-bottom: 22px;
+    color: var(--text-muted);
+  }
+
+  p strong { color: var(--text); font-weight: 600; }
+
+  /* HEADINGS */
+  h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text);
+    margin: 52px 0 18px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--accent-light);
+    margin: 32px 0 12px;
+  }
+
+  /* QUESTION BLOCK */
+  .question-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-right: 4px solid var(--accent);
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin: 36px 0;
+  }
+
+  .question-block .q-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 10px;
+  }
+
+  .question-block .q-text {
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .question-block p {
+    margin-bottom: 0;
+    font-size: 15.5px;
+  }
+
+  /* STAT BOX */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin: 36px 0;
+  }
+
+  .stat-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 20px;
+    text-align: center;
+  }
+
+  .stat-box .num {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--accent-light);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-box .lbl {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  /* SCENE */
+  .scene {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin: 36px 0;
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.9;
+    position: relative;
+  }
+
+  .scene::before {
+    content: '"';
+    position: absolute;
+    top: -8px;
+    right: 20px;
+    font-size: 64px;
+    color: var(--accent);
+    opacity: 0.2;
+    font-style: normal;
+    line-height: 1;
+  }
+
+  /* ALERT */
+  .alert {
+    display: flex;
+    gap: 14px;
+    padding: 20px 22px;
+    border-radius: 10px;
+    margin: 28px 0;
+    align-items: flex-start;
+  }
+
+  .alert-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+  .alert-body { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
+  .alert-body strong { color: var(--text); }
+
+  .alert-tip { background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2); }
+  .alert-fact { background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.2); }
+  .alert-warn { background: rgba(251,146,60,0.08); border: 1px solid rgba(251,146,60,0.2); }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 44px 0;
+  }
+
+  /* CTA */
+  .cta-block {
+    background: linear-gradient(135deg, #1e3a5f 0%, #1a2744 100%);
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 16px;
+    padding: 40px 36px;
+    text-align: center;
+    margin: 56px 0 0;
+  }
+
+  .cta-block h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 12px;
+  }
+
+  .cta-block p {
+    font-size: 15px;
+    margin-bottom: 28px;
+    color: var(--text-muted);
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: 'Heebo', sans-serif;
+    transition: background 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .cta-btn:hover { background: var(--accent-light); }
+
+  /* SUMMARY LIST */
+  .summary-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .summary-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 15.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .summary-list li .check {
+    width: 22px;
+    height: 22px;
+    background: rgba(52,211,153,0.15);
+    border: 1px solid rgba(52,211,153,0.3);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: var(--green);
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 44px;
+  }
+
+  .toc-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-dim);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .toc ol {
+    list-style: none;
+    counter-reset: toc;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .toc ol li {
+    counter-increment: toc;
+    font-size: 14px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .toc ol li::before {
+    content: counter(toc, decimal-leading-zero);
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 700;
+    min-width: 22px;
+  }
+
+  /* FOOTER */
+  .post-footer {
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .author-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .author-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #7c3aed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .author-name { font-size: 14px; font-weight: 700; color: var(--text); }
+  .author-role { font-size: 12px; color: var(--text-dim); }
+
+  .tags-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .post-tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 44px 16px 36px; }
+    .container { padding: 36px 16px 60px; }
+    .question-block, .scene, .cta-block { padding: 22px 18px; }
+    h2 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav style="position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:rgba(15,17,23,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);z-index:50">
+  <a href="../" style="font-size:18px;font-weight:900;letter-spacing:-.5px;color:#fff;text-decoration:none">אוטומציה<span style="font-weight:300"> בקלות</span></a>
+  <a href="../" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text-muted);font-weight:600;padding:7px 14px;border-radius:20px;border:1px solid var(--border);text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='rgba(59,130,246,.4)';this.style.color='#60a5fa'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    חזרה לעמוד הראשי
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">שיווק דיגיטלי · עסקים קטנים</div>
+  <h1>5 שאלות שלקוחות שואלים אותך בוואטסאפ<br><span>בשעה 11 בלילה</span></h1>
+  <p class="hero-sub">ואיך לענות עליהן בלי להיות ער. כל מה שהלקוח רוצה לדעת לפני שהוא מחליט, ומה קורה כשהוא לא מקבל תשובה.</p>
+  <div class="hero-meta">
+    <span>✍️ אוטומציה בקלות</span>
+    <span>📖 6 דקות קריאה</span>
+    <span>🏷️ צ'אטבוט, וואטסאפ, עסקים קטנים</span>
+  </div>
+</div>
+
+<!-- ARTICLE -->
+<div class="container">
+
+  <!-- TOC -->
+  <nav class="toc">
+    <div class="toc-title">תוכן העניינים</div>
+    <ol>
+      <li>הטלפון מתנדנד בשעה 11 בלילה</li>
+      <li>"כמה עולה?" — הליד שמחכה לך</li>
+      <li>"יש לכם מקום ל...?" — זמינות בזמן אמת</li>
+      <li>"איפה אתם נמצאים?" — כתובת וניווט</li>
+      <li>"מה כולל השירות?" — לפני שמחליטים</li>
+      <li>"אפשר לקבוע תור?" — ההזמנה שקורית בלעדיך</li>
+      <li>מה קורה לעסקים שעונים מהר</li>
+    </ol>
+  </nav>
+
+  <!-- OPENING -->
+  <h2>📱 הטלפון מתנדנד בשעה 11 בלילה</h2>
+
+  <div class="scene">
+    אתה כבר בפיג'מה. הסדרה רצה ברקע. הילדים ישנים.
+    הטלפון רוטט על השולחן.<br><br>
+    לקוח חדש. שואל על מחיר.
+  </div>
+
+  <p>מה תעשה? תענה? תתעלם? תבטיח לעצמך שתחזור אליו בבוקר?</p>
+
+  <p>הבעיה היא שלקוח ששולח הודעה בשעה 11 בלילה <strong>לא מחכה לבוקר.</strong> הוא שלח את אותה הודעה לעוד שניים-שלושה עסקים. מי שיענה ראשון, יקבל את העסקה.</p>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="num">53%</div>
+      <div class="lbl">מהלקוחות מצפים לתשובה תוך שעה</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">82%</div>
+      <div class="lbl">מרגישים יותר ביטחון לקנות אחרי תשובה מהירה</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">7 דק'</div>
+      <div class="lbl">הזמן הממוצע עד שלקוח עובר לעסק הבא</div>
+    </div>
+  </div>
+
+  <p>עכשיו תחשוב: כמה הודעות כאלה מגיעות אליך בשבוע? ולכמה מהן אתה עונה בתוך שעה?</p>
+
+  <p>בואו נעבור על 5 השאלות שמגיעות הכי הרבה, ומה אפשר לעשות כדי שהתשובה תחכה ללקוח, גם כשאתה לא.</p>
+
+  <hr class="divider">
+
+  <!-- Q1 -->
+  <div class="question-block">
+    <div class="q-label">שאלה 1</div>
+    <div class="q-text">💬 "כמה עולה?"</div>
+    <p>שאלת המחיר היא הנפוצה ביותר. ובניגוד למה שנדמה, מי ששואל אותה ב-11 בלילה הוא <strong>ליד חם מאוד.</strong> הוא לא גולש מבטלה. הוא מחפש, משווה, ומתכוון לקנות.</p>
+  </div>
+
+  <p>מה שרוב בעלי העסקים לא מבינים הוא שלקוח ששואל על מחיר כבר החליט ברמה מסוימת שהוא רוצה את השירות. הוא רק בשלב שבו הוא בוחן אם הוא יכול להרשות לעצמו, ואם שווה לו להמשיך.</p>
+
+  <p>תשובה מהירה בשלב הזה יכולה לסגור עסקה לפני שהוא התעורר בבוקר.</p>
+
+  <div class="alert alert-tip">
+    <span class="alert-icon">💡</span>
+    <div class="alert-body"><strong>מה הבוט עושה:</strong> עונה עם רשימת השירותים והמחירים, מציע לקבוע שיחת ייעוץ קצרה או להזמין תור, ושומר את פרטי הלקוח לפני שהוא הולך.</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Q2 -->
+  <div class="question-block">
+    <div class="q-label">שאלה 2</div>
+    <div class="q-text">💬 "יש לכם מקום ליום חמישי בשעה 4?"</div>
+    <p>שאלת הזמינות. הלקוח כבר יודע מה הוא רוצה, הוא רק בודק אם אתה יכול לתת לו את זה בזמן שמתאים לו. <strong>אם לא תענה, הוא יתקשר לעסק הבא.</strong></p>
+  </div>
+
+  <p>זו בדיוק השאלה שמתסכלת הכי הרבה בעלי עסקים, כי היא דורשת גישה ללוח הזמנים שלך בזמן אמת. אם אין לך מישהו שיבדוק ויענה, הלקוח פשוט לא מקבל תשובה.</p>
+
+  <p>חיבור הבוט ללוח שנה גוגל פותר את זה לגמרי. הלקוח בוחר תאריך ושעה מתוך החלונות הפנויים, ומקבל אישור מיידי, בלי שאתה עשית כלום.</p>
+
+  <div class="alert alert-fact">
+    <span class="alert-icon">✅</span>
+    <div class="alert-body"><strong>מה שקורה בפועל:</strong> לקוח שולח הודעה ב-23:14, בוחר תור לחמישי ב-16:00, מקבל אישור אוטומטי עם הזמנה לקלנדר. בוקר אחר כך אתה מקבל ת'ור חדש בלוח השנה. לא ידעת שזה קרה.</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Q3 -->
+  <div class="question-block">
+    <div class="q-label">שאלה 3</div>
+    <div class="q-text">💬 "איפה אתם נמצאים? יש חניה?"</div>
+    <p>שאלת המיקום נראית טריוויאלית, אבל היא מגיעה בדיוק ברגע שהלקוח שוקל לבוא. <strong>חוסר תשובה בשלב הזה הוא סיבה לוותר.</strong></p>
+  </div>
+
+  <p>כמה פעמים ביום אתה עונה על "איפה אתם?" זה לא משנה אם הכתובת כתובה באתר שלך. הלקוח שאל בוואטסאפ. הוא רוצה את התשובה שם.</p>
+
+  <p>בוט טוב עונה עם הכתובת, קישור לניווט בגוגל מפות, ומידע על חניה, הכל בהודעה אחת נקייה.</p>
+
+  <hr class="divider">
+
+  <!-- Q4 -->
+  <div class="question-block">
+    <div class="q-label">שאלה 4</div>
+    <div class="q-text">💬 "מה כולל השירות? יש הבדל בין הבסיסי למתקדם?"</div>
+    <p>שאלת הפירוט. הלקוח רוצה להבין מה הוא מקבל לפני שהוא מתחייב. זו לא שאלה שצריכה אותך, <strong>זו שאלה שהמידע שלך יכול לענות עליה.</strong></p>
+  </div>
+
+  <p>כשבנית את בסיס הידע של הבוט נכון, כל שאלה כזו מקבלת תשובה מדויקת. "מה ההבדל בין חבילה A לחבילה B?" — הבוט עונה, מסביר, ואפילו שואל שאלות המשך כדי להבין מה מתאים ללקוח.</p>
+
+  <div class="alert alert-warn">
+    <span class="alert-icon">⚠️</span>
+    <div class="alert-body"><strong>הטעות הנפוצה:</strong> לא לעדכן את בסיס הידע כשהמחירים או השירותים משתנים. לקוח שמקבל מידע לא עדכני נהיה לקוח לא מרוצה. זו אחריות שנדרשת מבעל העסק, לא מהבוט.</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Q5 -->
+  <div class="question-block">
+    <div class="q-label">שאלה 5</div>
+    <div class="q-text">💬 "אפשר לקבוע תור לשבוע הבא?"</div>
+    <p>זו השאלה שאם אתה לא עונה עליה בלילה, <strong>אתה מפסיד תור.</strong> הלקוח ישן, שכח, ובבוקר כבר עבר לאחר.</p>
+  </div>
+
+  <p>הזמנת תור דרך הבוט עובדת בדיוק כמו שלקוח מצפה שתעבוד: שולח הודעה, בוחר שירות, בוחר תאריך ושעה מתוך מה שפנוי, ומקבל אישור עם תזכורת יום לפני.</p>
+
+  <p>כבעל עסק, כל מה שאתה רואה הוא תור חדש שנוסף ללוח השנה שלך בגוגל. אתה לא עשית כלום. לא ידעת שנרשם. פשוט בבוקר יש לך עוד לקוח.</p>
+
+  <hr class="divider">
+
+  <!-- CONCLUSION -->
+  <h2>📊 מה קורה לעסקים שעונים מהר</h2>
+
+  <p>יש ניסוי שנעשה כמה פעמים בתחומים שונים: שולחים פנייה לכמה עסקים מאותו תחום ומודדים מי עונה ראשון ומי מקבל את הלקוח בסוף.</p>
+
+  <p>התוצאה תמיד אותה דבר. <strong>לא תמיד הזול ניצח. לא תמיד המנוסה ניצח. בדרך כלל ניצח מי שענה ראשון.</strong></p>
+
+  <p>הסיבה פשוטה: לקוח שקיבל תשובה מהירה מרגיש שמטפלים בו. הוא מתחיל לבנות תחושה של ביטחון עוד לפני שהגיע. לקוח שחיכה שעה וחצי לתשובה כבר עשה עסקה עם מישהו אחר.</p>
+
+  <h3>סיכום: מה אפשר לעשות כבר עכשיו</h3>
+
+  <ul class="summary-list">
+    <li>
+      <span class="check">✓</span>
+      <span><strong>תכין תשובות לכל 5 השאלות האלה</strong> בכתב. כתובת, מחיר, שירותים, שעות פעילות, אפשרויות הזמנה. זה הבסיס לכל בוט טוב.</span>
+    </li>
+    <li>
+      <span class="check">✓</span>
+      <span><strong>תחבר את לוח השנה שלך לכלי שמאפשר ללקוחות להזמין בלי צורך בך.</strong> גוגל קלנדר, Calendly, או בוט עם גישה לזמינות שלך.</span>
+    </li>
+    <li>
+      <span class="check">✓</span>
+      <span><strong>תבדוק כמה הודעות נשארות ללא מענה מעל שעה.</strong> זה המספר שאומר לך כמה לידים אתה מאבד כל שבוע.</span>
+    </li>
+    <li>
+      <span class="check">✓</span>
+      <span><strong>תחשוב על פתרון שעובד גם בלילה ובסופי שבוע.</strong> לא רק בשעות הפעילות. הלקוחות לא מחכים.</span>
+    </li>
+  </ul>
+
+  <p>הלקוח שכותב לך ב-11 בלילה לא מצפה שאתה תהיה ער. הוא מצפה לתשובה. אלה שני דברים שונים לגמרי.</p>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h3>רוצה שהבוט שלך יענה על כל השאלות האלו?</h3>
+    <p>הדגמה חינמית של 15 דקות. תראה בדיוק איך הבוט עובד לעסק שלך, עם הנתונים שלך.</p>
+    <a href="https://wa.me/972543978620?text=%D7%94%D7%99%D7%99%21%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%90%D7%9E%D7%A8%20%D7%A2%D7%9C%20%D7%94%D7%95%D7%95%D7%90%D7%98%D7%A1%D7%90%D7%A4%20%D7%91%D7%9C%D7%99%D7%9C%D7%94%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%91%D7%94%D7%93%D7%92%D7%9E%D7%94" target="_blank" rel="noopener" class="cta-btn">תיאום הדגמה חינמית</a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="post-footer">
+    <div class="author-box">
+      <div class="author-avatar">🤖</div>
+      <div>
+        <div class="author-name">אוטומציה בקלות</div>
+        <div class="author-role">בוטים לעסקים קטנים ובינוניים</div>
+      </div>
+    </div>
+    <div class="tags-row">
+      <span class="post-tag">צ'אטבוט</span>
+      <span class="post-tag">וואטסאפ</span>
+      <span class="post-tag">עסקים קטנים</span>
+      <span class="post-tag">אוטומציה</span>
+      <span class="post-tag">לידים</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
