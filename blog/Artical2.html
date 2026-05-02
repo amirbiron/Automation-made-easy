@@ -329,48 +329,6 @@
     color: var(--green);
   }
 
-  .toc {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px 28px;
-    margin-bottom: 44px;
-  }
-
-  .toc-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text-dim);
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-
-  .toc ol {
-    list-style: none;
-    counter-reset: toc;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .toc ol li {
-    counter-increment: toc;
-    font-size: 14px;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .toc ol li::before {
-    content: counter(toc, decimal-leading-zero);
-    font-size: 11px;
-    color: var(--accent);
-    font-weight: 700;
-    min-width: 22px;
-  }
-
   .cta-block {
     background: linear-gradient(135deg, #1e3a5f 0%, #1a2744 100%);
     border: 1px solid rgba(59,130,246,0.3);
@@ -544,19 +502,6 @@
 
 <!-- ARTICLE -->
 <div class="container">
-
-  <!-- TOC -->
-  <nav class="toc">
-    <div class="toc-title">תוכן העניינים</div>
-    <ol>
-      <li>ניסוי שנעשה כמה פעמים</li>
-      <li>מה הלקוח עושה כשלא עונים לו</li>
-      <li>שלושת השלבים שבהם אתה מאבד אותו</li>
-      <li>לפני ואחרי — שני עסקים, אותו לקוח</li>
-      <li>החישוב שרוב בעלי העסקים לא עושים</li>
-      <li>מה אפשר לשנות כבר עכשיו</li>
-    </ol>
-  </nav>
 
   <!-- OPENING -->
   <h2>🔬 ניסוי שנעשה כמה פעמים</h2>
