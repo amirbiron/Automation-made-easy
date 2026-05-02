@@ -27,7 +27,7 @@
     background: var(--bg);
     color: var(--text);
     font-family: 'Heebo', sans-serif;
-    font-size: 17px;
+    font-size: 18.5px;
     line-height: 1.85;
   }
 
@@ -53,10 +53,10 @@
   }
 
   .hero h1 {
-    font-size: clamp(24px, 5vw, 40px);
+    font-size: clamp(26px, 5vw, 46px);
     font-weight: 900;
     line-height: 1.25;
-    max-width: 720px;
+    max-width: 820px;
     margin: 0 auto 20px;
     color: #fff;
   }
@@ -84,7 +84,7 @@
   .hero-meta span { display: flex; align-items: center; gap: 5px; }
 
   .container {
-    max-width: 740px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 52px 24px 80px;
   }
@@ -488,6 +488,15 @@
 </head>
 <body>
 
+<!-- TOP NAV -->
+<nav style="position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:rgba(15,17,23,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);z-index:50">
+  <a href="../" style="font-size:18px;font-weight:900;letter-spacing:-.5px;color:#fff;text-decoration:none">אוטומציה<span style="font-weight:300"> בקלות</span></a>
+  <a href="../" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text-muted);font-weight:600;padding:7px 14px;border-radius:20px;border:1px solid var(--border);text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='rgba(59,130,246,.4)';this.style.color='#60a5fa'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    חזרה לעמוד הראשי
+  </a>
+</nav>
+
 <!-- HERO -->
 <div class="hero">
   <div class="hero-tag">לידים · עסקים קטנים</div>
@@ -660,7 +669,7 @@
   <div class="cta-block">
     <h3>בדוק כמה לידים הפסדת החודש</h3>
     <p>שיחת הערכה קצרה של 15 דקות. נעבור על הנתונים של העסק שלך ונחשב יחד כמה זה שווה לך לשנות.</p>
-    <button class="cta-btn">לשיחת הערכה חינמית</button>
+    <a href="https://wa.me/972543978620?text=%D7%94%D7%99%D7%99%21%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%90%D7%9E%D7%A8%20%D7%A2%D7%9C%20%D7%9E%D7%A2%D7%A0%D7%94%20%D7%9C%D7%9C%D7%99%D7%93%D7%99%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%91%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%A2%D7%A8%D7%9B%D7%94" target="_blank" rel="noopener" class="cta-btn">לשיחת הערכה חינמית</a>
   </div>
 
   <!-- FOOTER -->
