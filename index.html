@@ -55,7 +55,7 @@ h1{font-size:clamp(2.8rem,5.5vw,4.4rem);font-weight:900;line-height:1.08;margin-
 .h-sub strong{color:var(--t);font-weight:700}
 /* Rotating bubble */
 .hero-rotate{margin:1.4rem 0 1.2rem}
-.bw-out{display:inline-flex;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;letter-spacing:-1px;direction:rtl;min-height:1.3em;align-items:center}
+.bw-out{display:inline-block;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;letter-spacing:-1px;direction:rtl;min-height:1.3em;line-height:1.3;unicode-bidi:plaintext}
 .bw-ch{display:inline-block;min-width:.55em;text-align:center;opacity:0;background:linear-gradient(135deg,#25D366,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .bw-ch.rev{animation:bwIn .5s cubic-bezier(.2,0,.2,1) forwards}
 .rw-exit{animation:rwOut .22s ease forwards}
@@ -184,7 +184,7 @@ h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-1px;marg
 
 /* SERVICES */
 #srv{background:var(--bg2)}
-.sg{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
 .sc{background:var(--card);border:1px solid var(--cb);border-radius:24px;padding:2.5rem;transition:all .35s;position:relative;overflow:hidden}
 .sc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g),transparent);transform:scaleX(0);transition:transform .4s;transform-origin:center}
 .sc:hover{background:var(--ch);transform:translateY(-5px)}
@@ -193,9 +193,11 @@ h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-1px;marg
 .sc-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.22rem .7rem;border-radius:50px;font-size:.74rem;font-weight:700;margin-bottom:1.5rem}
 .sc-badge.gr{background:rgba(37,211,102,.1);color:var(--g)}
 .sc-badge.bl{background:rgba(59,130,246,.1);color:var(--bl)}
+.sc-badge.pu{background:rgba(139,92,246,.1);color:var(--pu)}
 .sc-ico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem}
 .sc-ico.gr{background:rgba(37,211,102,.1)}.sc-ico.gr svg{stroke:var(--g);fill:none;width:24px;height:24px}
 .sc-ico.bl{background:rgba(59,130,246,.1)}.sc-ico.bl svg{stroke:var(--bl);fill:none;width:24px;height:24px}
+.sc-ico.pu{background:rgba(139,92,246,.1)}.sc-ico.pu svg{stroke:var(--pu);fill:none;width:24px;height:24px}
 .sc h3{font-size:1.35rem;font-weight:900;margin-bottom:.6rem}
 .sc p{font-size:.92rem;color:var(--m);line-height:1.8;margin-bottom:1.5rem}
 .fl{list-style:none;display:flex;flex-direction:column;gap:.55rem}
@@ -329,7 +331,7 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
 /* POPUP */
 .pop-ov{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(14px);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s ease;padding:20px}
 .pop-ov.on{opacity:1;pointer-events:all}
-.pop-card{background:#0D0D22;border-radius:28px;max-width:430px;width:100%;position:relative;transform:scale(.82) translateY(24px);transition:all .45s cubic-bezier(.34,1.56,.64,1);box-shadow:0 30px 80px rgba(0,0,0,.8);overflow:hidden}
+.pop-card{background:#0D0D22;border-radius:28px;max-width:430px;width:100%;position:relative;transform:scale(.82) translateY(24px);transition:all .45s cubic-bezier(.34,1.56,.64,1);box-shadow:0 30px 80px rgba(0,0,0,.8)}
 .pop-ov.on .pop-card{transform:scale(1) translateY(0)}
 .pop-glow{position:absolute;inset:-1.5px;border-radius:29.5px;background:linear-gradient(135deg,rgba(139,92,246,.7),rgba(37,211,102,.5));z-index:-1}
 .pop-close{position:absolute;top:12px;left:12px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(240,240,250,.5);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.85rem;transition:all .2s;font-family:inherit;z-index:10}
@@ -508,7 +510,7 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
       <h1>העסק שלך יעבוד<br>
         <span class="h1-line2">על <span class="g-text">טייס אוטומטי</span> <span class="pu-text">24/7</span></span>
       </h1>
-      <p class="h-sub">בונים <strong>אתר מקצועי</strong> שמושך לקוחות, ו<strong>בוט וואטסאפ חכם</strong> שקובע תורים, עונה על שאלות ומנהל את היומן — בזמן שאתה עסוק בדברים שחשובים.</p>
+      <p class="h-sub">בונים <strong>אתר מקצועי</strong> שמושך לקוחות, <strong>בוט חכם</strong> שעונה ומתאם תורים, ו<strong>אוטומציות</strong> שמחברות את הכל ועובדות בשבילך — בזמן שאתה עסוק בדברים שחשובים.</p>
 
       <div class="hero-rotate">
         <div class="bw-out" id="blurOut"></div>
@@ -629,6 +631,18 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
         <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>קידום SEO מוטמע מהיום הראשון</li>
         <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>אינטגרציה עם הבוט</li>
         <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>טפסי ליד + דף נחיתה</li>
+      </ul>
+      <a href="https://wa.me/972526915503?text=%D7%94%D7%99%D7%99%21%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%D7%9D%20%D7%A9%D7%9C%D7%9B%D7%9D" class="sc-lnk">קבל הצעת מחיר <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+    <div class="sc reveal" style="transition-delay:.3s">
+      <span class="sc-badge pu">בהתאמה אישית</span>
+      <div class="sc-ico pu"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg></div>
+      <h3>אוטומציות לעסק</h3>
+      <p>חיבורים בין כל המערכות שלך — Sheets, CRM, מייל, יומן ופלטפורמות שיווק — כך שהמידע זורם אוטומטית במקום שתעתיק ידנית.</p>
+      <ul class="fl">
+        <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>סנכרון בין מערכות (Sheets ↔ CRM ↔ מייל)</li>
+        <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>אוטומציות שיווק ומעקב לידים</li>
+        <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>אינטגרציות מותאמות לעסק שלך</li>
       </ul>
       <a href="https://wa.me/972526915503?text=%D7%94%D7%99%D7%99%21%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%D7%9D%20%D7%A9%D7%9C%D7%9B%D7%9D" class="sc-lnk">קבל הצעת מחיר <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
@@ -1153,7 +1167,7 @@ function handleSend(){
   const t=showTyping();
   setTimeout(()=>{
     t.remove();
-    msgs.forEach((m,i)=>setTimeout(()=>{addMsg('bot',m);if(i===msgs.length-1)setTimeout(()=>{showBtns([{l:'קבע ייעוץ חינם',f:'appt'},{l:'ראה שירותים',f:'services'}]);chatLocked=false;},350)},i*650));
+    msgs.forEach((m,i)=>setTimeout(()=>{addMsg('bot',m);if(i===msgs.length-1)setTimeout(()=>{showBtns(flows.start.buttons);chatLocked=false;},350)},i*650));
   },Math.min(600+txt.length*25,1400));
 }
 const sb=document.getElementById('sendBtn'),ci=document.getElementById('chatInput');
@@ -1163,7 +1177,16 @@ if(ci)ci.addEventListener('keydown',e=>{if(e.key==='Enter')handleSend()});
 function startChat(){
   chatLocked=true;
   const t=showTyping();
-  setTimeout(()=>{t.remove();addMsg('bot','שלום! אני הבוט של אוטומציה בקלות.');setTimeout(()=>{addMsg('bot','במה אוכל לעזור היום?');setTimeout(()=>{showBtns(flows.start.buttons);chatLocked=false;},400);},700);},1000);
+  const greet=flows.start.botMsgs||['היי!','במה אוכל לעזור?'];
+  setTimeout(()=>{
+    t.remove();
+    greet.forEach((m,i)=>{
+      setTimeout(()=>{
+        addMsg('bot',m);
+        if(i===greet.length-1)setTimeout(()=>{showBtns(flows.start.buttons);chatLocked=false;},400);
+      },i*700);
+    });
+  },1000);
 }
 startChat();
 </script>
