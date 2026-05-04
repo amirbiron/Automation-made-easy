@@ -18,7 +18,7 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 @keyframes tdot{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
 @keyframes rwOut{to{opacity:0;transform:translateY(-8px)}}
 @keyframes rwIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-@keyframes hrRipple{to{width:320px;height:320px;opacity:0}}
+@keyframes bwIn{0%{opacity:0;filter:blur(10px);transform:translateY(6px)}100%{opacity:1;filter:blur(0);transform:translateY(0)}}
 @keyframes tgFly{0%,100%{transform:translateY(0) rotate(-12deg)}50%{transform:translateY(-4px) rotate(-18deg)}}
 @keyframes tgShine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 @keyframes popIn{from{opacity:0;transform:scale(.82) translateY(24px)}to{opacity:1;transform:scale(1) translateY(0)}}
@@ -55,13 +55,11 @@ h1{font-size:clamp(2.8rem,5.5vw,4.4rem);font-weight:900;line-height:1.08;margin-
 .h-sub strong{color:var(--t);font-weight:700}
 /* Rotating bubble */
 .hero-rotate{margin:1.4rem 0 1.2rem}
-.hr-bubble{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(37,211,102,.1),rgba(139,92,246,.1));border:1.5px solid rgba(37,211,102,.35);border-radius:50px;padding:11px 26px;cursor:pointer;position:relative;overflow:hidden;transition:all .3s;min-width:200px;justify-content:center;user-select:none}
-.hr-bubble:hover{border-color:rgba(37,211,102,.65);transform:scale(1.04);box-shadow:0 0 22px rgba(37,211,102,.2)}
-.hr-bubble:active{transform:scale(.97)}
-#rotWord{font-size:1.1rem;font-weight:900;background:linear-gradient(135deg,#25D366,#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block}
+.bw-out{display:inline-flex;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;letter-spacing:-1px;direction:rtl;min-height:1.3em;align-items:center}
+.bw-ch{display:inline-block;min-width:.55em;text-align:center;opacity:0;background:linear-gradient(135deg,#25D366,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.bw-ch.rev{animation:bwIn .5s cubic-bezier(.2,0,.2,1) forwards}
 .rw-exit{animation:rwOut .22s ease forwards}
 .rw-enter{animation:rwIn .3s ease forwards}
-.hr-ripple{position:absolute;border-radius:50%;background:rgba(37,211,102,.2);width:8px;height:8px;animation:hrRipple .6s ease-out forwards;transform:translate(-50%,-50%);pointer-events:none}
 .tg-bubble{display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,rgba(34,158,217,.12),rgba(139,92,246,.12));border:1.5px solid rgba(34,158,217,.4);border-radius:50px;padding:11px 20px;cursor:pointer;position:relative;overflow:hidden;transition:all .3s;text-decoration:none;width:fit-content;max-width:100%;margin:.6rem auto 1.3rem;justify-content:center;color:var(--t)}
 .tg-bubble:hover{border-color:rgba(34,158,217,.75);transform:scale(1.025);box-shadow:0 0 26px rgba(34,158,217,.28)}
 .tg-bubble:active{transform:scale(.98)}
@@ -482,10 +480,7 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
       <p class="h-sub">בונים <strong>אתר מקצועי</strong> שמושך לקוחות, ו<strong>בוט וואטסאפ חכם</strong> שקובע תורים, עונה על שאלות ומנהל את היומן — בזמן שאתה עסוק בדברים שחשובים.</p>
 
       <div class="hero-rotate">
-        <div class="hr-bubble" id="hrBubble">
-          <span id="rotWord">עונה 24/7</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#25D366"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs><path d="M5 12h14M12 5l7 7-7 7" stroke="url(#rg)"/></svg>
-        </div>
+        <div class="bw-out" id="blurOut"></div>
       </div>
 
       <div class="h-proofs">
@@ -874,15 +869,24 @@ document.getElementById('popClose')?.addEventListener('click',closePop);
 document.getElementById('popDismiss')?.addEventListener('click',closePop);
 pop?.addEventListener('click',e=>{if(e.target===pop)closePop()});
 
-// ROTATING TEXT
-const words=['עונה 24/7','מייצר לידים','מתאם פגישות','בונה אוטומציות','חוסך לך שעות'];
-let wi=0;
-const rw=document.getElementById('rotWord');
-if(rw){
-  setInterval(()=>{
-    rw.classList.add('rw-exit');
-    setTimeout(()=>{wi=(wi+1)%words.length;rw.textContent=words[wi];rw.classList.remove('rw-exit');rw.classList.add('rw-enter');setTimeout(()=>rw.classList.remove('rw-enter'),350)},220);
-  },2200);
+// BLUR WAVE — HERO ROTATING TEXT
+const bwEl=document.getElementById('blurOut');
+const bwWords=['עונה 24/7','מייצר לידים','מתאם פגישות','בונה אוטומציות','חוסך לך שעות'];
+let bwIdx=0;
+function blurTo(txt){
+  if(!bwEl)return;
+  bwEl.innerHTML='';
+  [...txt].forEach((ch,i)=>{
+    const s=document.createElement('span');
+    s.className='bw-ch';
+    s.textContent=ch===' '?' ':ch;
+    bwEl.appendChild(s);
+    setTimeout(()=>s.classList.add('rev'),i*55+20);
+  });
+}
+if(bwEl){
+  blurTo(bwWords[0]);
+  setInterval(()=>{bwIdx=(bwIdx+1)%bwWords.length;blurTo(bwWords[bwIdx]);},2800);
 }
 
 // ROTATING TEXT — TELEGRAM BOT BUBBLE
@@ -904,13 +908,6 @@ document.querySelectorAll('.tc-toggle').forEach(btn=>{
   });
 });
 
-// BUBBLE RIPPLE
-document.getElementById('hrBubble')?.addEventListener('click',function(e){
-  const r=document.createElement('span');r.className='hr-ripple';
-  const rect=this.getBoundingClientRect();r.style.left=(e.clientX-rect.left)+'px';r.style.top=(e.clientY-rect.top)+'px';
-  this.appendChild(r);setTimeout(()=>r.remove(),600);
-  setTimeout(()=>window.open(WA,'_blank'),120);
-});
 
 // CHAT
 const ca=document.getElementById('chatArea');
