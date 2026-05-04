@@ -430,17 +430,15 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
 
 .ld-card {
   width: 100%; max-width: 460px;
-  background: #0C0C1A;
+  background:
+    linear-gradient(#0C0C1A, #0C0C1A) padding-box,
+    linear-gradient(135deg, rgba(139,92,246,.55), rgba(37,211,102,.4)) border-box;
+  border: 1.5px solid transparent;
   border-radius: 26px;
   position: relative; overflow: hidden;
   transform: scale(.9) translateY(20px); opacity: 0;
   transition: transform .45s cubic-bezier(.34,1.56,.64,1), opacity .35s ease;
   box-shadow: 0 40px 100px rgba(0,0,0,.9);
-}
-.ld-card::before {
-  content: ''; position: absolute; inset: -1px; border-radius: 27px;
-  background: linear-gradient(135deg, rgba(139,92,246,.55), rgba(37,211,102,.4));
-  z-index: -1;
 }
 .ld-ov.open .ld-card { transform: scale(1) translateY(0); opacity: 1; }
 
@@ -566,7 +564,7 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
 .ld-ok-svg circle.bg { fill: none; stroke: rgba(37,211,102,.12); stroke-width: 5; }
 .ld-ok-svg circle.tr {
   fill: none; stroke: #25D366; stroke-width: 5;
-  stroke-linecap: round; stroke-dasharray: 199; stroke-dashoffset: 199;
+  stroke-linecap: round; stroke-dasharray: 208; stroke-dashoffset: 208;
   transform-origin: center; transform: rotate(-90deg);
   animation: ldCheck .9s ease forwards; animation-delay: .15s;
 }
