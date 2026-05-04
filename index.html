@@ -327,30 +327,40 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
 .waf svg{fill:#000;width:28px;height:28px}
 
 /* POPUP */
-.pop-ov{position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(10px);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s ease;padding:20px}
+.pop-ov{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(14px);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s ease;padding:20px}
 .pop-ov.on{opacity:1;pointer-events:all}
-.pop-card{background:#0D0D22;border-radius:28px;padding:2.2rem 2rem 1.8rem;max-width:420px;width:100%;position:relative;transform:scale(.82) translateY(24px);transition:all .45s cubic-bezier(.34,1.56,.64,1);box-shadow:0 30px 80px rgba(0,0,0,.8)}
+.pop-card{background:#0D0D22;border-radius:28px;max-width:430px;width:100%;position:relative;transform:scale(.82) translateY(24px);transition:all .45s cubic-bezier(.34,1.56,.64,1);box-shadow:0 30px 80px rgba(0,0,0,.8);overflow:hidden}
 .pop-ov.on .pop-card{transform:scale(1) translateY(0)}
-.pop-glow{position:absolute;inset:-1.5px;border-radius:29.5px;background:linear-gradient(135deg,rgba(139,92,246,.8),rgba(37,211,102,.6));z-index:-1}
-.pop-close{position:absolute;top:14px;left:16px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:var(--m);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .2s;line-height:1;font-family:inherit}
-.pop-close:hover{background:rgba(255,255,255,.14);color:var(--t)}
-.pop-logo{margin-bottom:1rem;text-align:right}
-.pop-logo-text{font-size:1.2rem;font-weight:900;letter-spacing:-1px;line-height:1;display:block}
-.pop-logo-text em{color:var(--g);font-style:normal}
-.pop-swoosh{width:120px;height:9px;display:block;margin-top:3px;margin-right:auto}
-.pop-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.25);color:var(--g);padding:.3rem .85rem;border-radius:50px;font-size:.75rem;font-weight:600;margin-bottom:1.2rem}
-.pop-bdot{width:7px;height:7px;border-radius:50%;background:var(--g);animation:bdot 1.5s infinite}
-.pop-title{font-size:1.7rem;font-weight:900;line-height:1.15;letter-spacing:-1px;margin-bottom:.4rem}
-.pop-title .pt-hl{background:linear-gradient(135deg,var(--g),var(--pu));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.pop-sub{font-size:.88rem;color:var(--m);margin-bottom:1.4rem;line-height:1.7}
-.pop-feats{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.6rem}
-.pop-feat{display:flex;align-items:center;gap:.6rem;font-size:.86rem;color:var(--m)}
-.pop-feat svg{stroke:var(--g);fill:none;flex-shrink:0;width:15px;height:15px}
-.pop-cta{display:flex;align-items:center;justify-content:center;gap:.6rem;background:var(--g);color:#000;font-weight:700;font-size:.95rem;padding:.9rem 1.5rem;border-radius:50px;text-decoration:none;transition:all .25s;margin-bottom:.9rem;width:100%}
-.pop-cta:hover{background:var(--g2);transform:translateY(-2px)}
+.pop-glow{position:absolute;inset:-1.5px;border-radius:29.5px;background:linear-gradient(135deg,rgba(139,92,246,.7),rgba(37,211,102,.5));z-index:-1}
+.pop-close{position:absolute;top:12px;left:12px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(240,240,250,.5);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.85rem;transition:all .2s;font-family:inherit;z-index:10}
+.pop-close:hover{background:rgba(255,255,255,.14);color:#fff}
+.pop-illus{background:linear-gradient(160deg,rgba(139,92,246,.14),rgba(37,211,102,.07));padding:1.8rem 1.8rem 1.4rem;text-align:center;border-bottom:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden}
+.pop-illus::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.04) 1px,transparent 1px);background-size:20px 20px;pointer-events:none}
+.pop-illus-icon{width:64px;height:64px;background:rgba(37,211,102,.1);border:1.5px solid rgba(37,211,102,.25);border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+.pop-illus-icon svg{width:32px;height:32px}
+.pop-question{font-size:.95rem;font-weight:700;color:rgba(240,240,250,.85);margin-bottom:.9rem;letter-spacing:-.2px}
+.pop-stat{display:flex;align-items:center;justify-content:center;gap:.3rem;direction:rtl}
+.pop-stat-num{font-size:4.5rem;font-weight:900;line-height:1;background:linear-gradient(135deg,#25D366,#7FFFA0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-4px}
+.pop-stat-plus{font-size:3rem;font-weight:900;color:#25D366;line-height:1;align-self:flex-start;margin-top:.3rem}
+.pop-stat-txt{font-size:.72rem;padding-bottom:.55rem;text-align:right;font-weight:700;color:rgba(240,240,250,.8);line-height:1.5}
+.pop-proof{display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:50px;padding:.3rem .85rem;font-size:.72rem;color:rgba(240,240,250,.6);margin-top:.9rem;font-weight:600}
+.pop-proof-dot{width:6px;height:6px;border-radius:50%;background:#25D366;animation:bdot 1.8s infinite;flex-shrink:0}
+.pop-logo-row{display:flex;align-items:center;justify-content:center;padding:1rem 1.6rem .6rem}
+.pop-logo-text{font-size:1.05rem;font-weight:900;letter-spacing:-1px;line-height:1;display:block;color:#F0F0FA}
+.pop-logo-text em{color:#25D366;font-style:normal}
+.pop-swoosh{width:110px;height:8px;display:block;margin-top:2px}
+.pop-badge-sm{display:inline-flex;align-items:center;gap:5px;background:rgba(37,211,102,.08);border:1px solid rgba(37,211,102,.2);color:#25D366;padding:.2rem .7rem;border-radius:50px;font-size:.7rem;font-weight:600}
+.pop-badge-dot{width:5px;height:5px;border-radius:50%;background:#25D366;animation:bdot 1.5s infinite}
+.pop-body{padding:.4rem 1.6rem 1.5rem}
+.pop-feats{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.3rem}
+.pop-feat{display:flex;align-items:center;gap:.7rem;font-size:.85rem;color:rgba(240,240,250,.65)}
+.pop-feat svg{stroke:#25D366;fill:none;flex-shrink:0;width:15px;height:15px}
+.pop-feat strong{color:#F0F0FA;font-weight:700}
+.pop-cta{display:flex;align-items:center;justify-content:center;gap:.6rem;background:#25D366;color:#000;font-weight:700;font-size:.95rem;padding:.9rem 1.5rem;border-radius:50px;text-decoration:none;transition:all .25s;margin-bottom:.75rem;width:100%}
+.pop-cta:hover{background:#1aad52;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.3)}
 .pop-cta svg{fill:#000;width:15px;height:15px}
-.pop-dismiss{background:none;border:none;color:var(--m2);font-size:.8rem;cursor:pointer;font-family:inherit;text-decoration:underline;width:100%;text-align:center;padding:.3rem;transition:color .2s}
-.pop-dismiss:hover{color:var(--m)}
+.pop-dismiss{background:none;border:none;color:rgba(240,240,250,.22);font-size:.76rem;cursor:pointer;font-family:inherit;text-decoration:underline;width:100%;text-align:center;padding:.3rem;transition:color .2s}
+.pop-dismiss:hover{color:rgba(240,240,250,.5)}
 /* BLOG */
 .bg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2.5rem}
 .bg-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--cb);border-radius:20px;padding:1.8rem;text-decoration:none;color:var(--t);transition:all .35s;position:relative;overflow:hidden}
@@ -840,23 +850,58 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
   <div class="pop-card">
     <div class="pop-glow"></div>
     <button class="pop-close" id="popClose">✕</button>
-    <div class="pop-logo">
-      <span class="pop-logo-text">אוטומציה<em> בקלות</em></span>
-      <svg class="pop-swoosh" viewBox="0 0 140 14" fill="none"><defs><linearGradient id="swgpop" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#25D366" stop-opacity="0.4"/><stop offset="100%" stop-color="rgba(255,255,255,0.8)"/></linearGradient></defs><path d="M138 12.5 C110 12.5 72 12.5 48 10 C28 7.5 10 3 2 0.5" stroke="url(#swgpop)" stroke-width="4" stroke-linecap="round"/></svg>
+    <div class="pop-logo-row" style="justify-content:center">
+      <div style="text-align:center">
+        <span class="pop-logo-text">אוטומציה<em> בקלות</em></span>
+        <svg class="pop-swoosh" viewBox="0 0 140 14" fill="none">
+          <defs><linearGradient id="swgpop" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#25D366" stop-opacity="0.4"/><stop offset="100%" stop-color="rgba(255,255,255,0.8)"/></linearGradient></defs>
+          <path d="M138 12.5 C110 12.5 72 12.5 48 10 C28 7.5 10 3 2 0.5" stroke="url(#swgpop)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
     </div>
-    <div class="pop-badge"><span class="pop-bdot"></span>מקבל לקוחות חדשים עכשיו</div>
-    <h3 class="pop-title">העסק שלך יכול לרוץ<br><span class="pt-hl">לבד — 24/7</span></h3>
-    <p class="pop-sub">בוט וואטסאפ + אתר מקצועי שעובדים בשבילך גם בזמן שאתה ישן.</p>
-    <div class="pop-feats">
-      <div class="pop-feat"><svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>בוט שעונה ומתאם תורים 24/7</div>
-      <div class="pop-feat"><svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>אתר שמביא לקוחות מגוגל</div>
-      <div class="pop-feat"><svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>שיחת ייעוץ ראשונה — חינם לגמרי</div>
+    <div class="pop-illus">
+      <div class="pop-illus-icon">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="#25D366" stroke-width="1.5"/>
+          <path d="M12 6v6l4 2" stroke="#25D366" stroke-width="2" stroke-linecap="round"/>
+          <path d="M7 17c1.5-1 3-1.5 5-1.5s3.5.5 5 1.5" stroke="#25D366" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p class="pop-question">כמה שעות ביום אתה עונה ידנית לוואטסאפ?</p>
+      <div class="pop-stat">
+        <span class="pop-stat-plus">+</span>
+        <span class="pop-stat-num">15</span>
+        <div class="pop-stat-txt">שעות<br>נחסכות<br>בשבוע</div>
+      </div>
+      <div class="pop-proof">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        עשרות עסקים התחילו לחסוך שעות יקרות כבר היום
+      </div>
     </div>
-    <a href="https://wa.me/972526915503?text=%D7%94%D7%99%D7%99%21%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%A4%D7%95%D7%A4%D7%90%D7%A4%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93" class="pop-cta">
-      <svg viewBox="0 0 24 24" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
-      קבל ייעוץ חינם עכשיו
-    </a>
-    <button class="pop-dismiss" id="popDismiss">לא עכשיו, תודה</button>
+    <div style="text-align:center;padding:.8rem 0 0">
+      <span class="pop-badge-sm"><span class="pop-badge-dot"></span>פעיל עכשיו</span>
+    </div>
+    <div class="pop-body">
+      <div class="pop-feats">
+        <div class="pop-feat">
+          <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <strong>בוט וואטסאפ</strong> שעונה ומתאם תורים 24/7
+        </div>
+        <div class="pop-feat">
+          <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <strong>אתר מקצועי</strong> שמביא לקוחות מגוגל
+        </div>
+        <div class="pop-feat">
+          <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          שיחת ייעוץ ראשונה — <strong>חינם לגמרי</strong>
+        </div>
+      </div>
+      <a href="https://wa.me/972526915503?text=%D7%94%D7%99%D7%99%21%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%A4%D7%95%D7%A4%D7%90%D7%A4%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%93%D7%9E%D7%95%20%D7%97%D7%99" class="pop-cta">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+        קבל דמו חי בוואטסאפ
+      </a>
+      <button class="pop-dismiss" id="popDismiss">לא עכשיו, תודה</button>
+    </div>
   </div>
 </div>
 
@@ -898,11 +943,18 @@ document.querySelectorAll('.fq').forEach(q=>{
 
 // POPUP
 const pop=document.getElementById('popup');
-setTimeout(()=>{if(pop)pop.classList.add('on')},2000);
-function closePop(){pop.classList.remove('on')}
-document.getElementById('popClose')?.addEventListener('click',closePop);
-document.getElementById('popDismiss')?.addEventListener('click',closePop);
-pop?.addEventListener('click',e=>{if(e.target===pop)closePop()});
+const showPopup=()=>{
+  if(pop && !sessionStorage.getItem('automation_popup_shown')){
+    pop.classList.add('on');
+    sessionStorage.setItem('automation_popup_shown','true');
+  }
+};
+document.addEventListener('mouseleave',(e)=>{if(e.clientY<0)showPopup()});
+setTimeout(showPopup,8000);
+const closePopup=()=>pop?.classList.remove('on');
+document.getElementById('popClose')?.addEventListener('click',closePopup);
+document.getElementById('popDismiss')?.addEventListener('click',closePopup);
+pop?.addEventListener('click',(e)=>{if(e.target===pop)closePopup()});
 
 // BLUR WAVE — HERO ROTATING TEXT
 const bwEl=document.getElementById('blurOut');
