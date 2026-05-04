@@ -363,6 +363,9 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
 .pop-cta svg{fill:#000;width:15px;height:15px}
 .pop-dismiss{background:none;border:none;color:rgba(240,240,250,.22);font-size:.76rem;cursor:pointer;font-family:inherit;text-decoration:underline;width:100%;text-align:center;padding:.3rem;transition:color .2s}
 .pop-dismiss:hover{color:rgba(240,240,250,.5)}
+/* AICHATBOT WIDGET — hide default launcher (we trigger via the TG bubble) */
+.aicb-launcher{display:none!important}
+
 /* BLOG */
 .bg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2.5rem}
 .bg-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--cb);border-radius:20px;padding:1.8rem;text-decoration:none;color:var(--t);transition:all .35s;position:relative;overflow:hidden}
@@ -922,6 +925,19 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
   </div>
 </div>
 
+<!-- REAL CHATBOT WIDGET -->
+<script src="https://ai-business-chatbot-zqmr.onrender.com/widget/embed.js"
+        data-color="#25D366"
+        data-font="Heebo, sans-serif"
+        data-radius="20"
+        data-width="380"
+        data-height="560"
+        data-icon="💬"
+        data-title="אוטומציה בקלות"
+        data-subtitle="בוט AI שעונה לכל שאלה"
+        data-position="bottom-right"
+        async></script>
+
 <script>
 const WA='https://wa.me/972526915503?text=%D7%94%D7%99%D7%99%21%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%D7%9D%20%D7%A9%D7%9C%D7%9B%D7%9D';
 
@@ -1001,6 +1017,25 @@ document.querySelectorAll('.tg-rot-word').forEach(el=>{
     el.classList.add('rw-exit');
     setTimeout(()=>{i=(i+1)%tgWords.length;el.textContent=tgWords[i];el.classList.remove('rw-exit');el.classList.add('rw-enter');setTimeout(()=>el.classList.remove('rw-enter'),350)},220);
   },2600);
+});
+
+// AICHATBOT WIDGET — open from "נסה אותי" bubbles (graceful fallback to Telegram)
+function openChatWidget(e){
+  if(window.AIChatbot && typeof window.AIChatbot.open==='function'){
+    window.AIChatbot.open();
+    e.preventDefault();
+  }
+}
+document.querySelectorAll('.tg-bubble').forEach(el=>{
+  el.addEventListener('click',openChatWidget);
+});
+// Belt-and-braces: rebind once the widget signals readiness, in case
+// the DOM had bubbles added later or the script loaded after wiring.
+window.addEventListener('aichatbot:ready',()=>{
+  document.querySelectorAll('.tg-bubble').forEach(el=>{
+    el.removeEventListener('click',openChatWidget);
+    el.addEventListener('click',openChatWidget);
+  });
 });
 
 // TESTIMONIAL EXPAND
