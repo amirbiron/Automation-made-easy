@@ -1022,8 +1022,8 @@ document.querySelectorAll('.tg-rot-word').forEach(el=>{
 // AICHATBOT WIDGET — open from "נסה אותי" bubbles (graceful fallback to Telegram)
 function openChatWidget(e){
   if(window.AIChatbot && typeof window.AIChatbot.open==='function'){
-    e.preventDefault();
     window.AIChatbot.open();
+    e.preventDefault();
   }
 }
 document.querySelectorAll('.tg-bubble').forEach(el=>{
