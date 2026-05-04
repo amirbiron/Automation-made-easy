@@ -84,7 +84,10 @@ h1{font-size:clamp(2.8rem,5.5vw,4.4rem);font-weight:900;line-height:1.08;margin-
 .h-new-dot{width:6px;height:6px;border-radius:50%;background:var(--g);animation:bdot 1.5s infinite}
 
 /* PHONE */
-.phone-wrap{position:relative;display:flex;justify-content:center;padding:20px}
+.phone-wrap{position:relative;display:flex;flex-direction:column;align-items:center;padding:20px}
+.phone-bot-bar{display:flex;align-items:center;gap:.6rem;margin-top:14px;font-size:.8rem;color:rgba(240,240,250,.55);font-weight:500}
+.phone-bot-bar svg{flex-shrink:0}
+.phone-bot-sep{color:rgba(255,255,255,.2);font-size:.9rem}
 .phone-wrap::before{content:'';position:absolute;inset:-10px;background-image:radial-gradient(circle,rgba(139,92,246,.14) 1px,transparent 1px);background-size:24px 24px;border-radius:32px;-webkit-mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 45%,transparent 80%);mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 45%,transparent 80%);pointer-events:none}
 .phone-border{background:linear-gradient(160deg,#8B5CF6,#25D366 60%,#8B5CF6);border-radius:44px;padding:2px;animation:pfloat 4s ease-in-out infinite;flex-shrink:0;box-shadow:0 0 40px rgba(139,92,246,.35),0 30px 60px rgba(0,0,0,.6)}
 .phone{width:268px;height:556px;background:#000;border-radius:42px;position:relative;overflow:hidden}
@@ -461,6 +464,13 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
               </div>
             </div>
           </div>
+        </div>
+        <div class="phone-bot-bar">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          עונה תוך שניות
+          <span class="phone-bot-sep">•</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          קובע תור אוטומטי
         </div>
       </div>
       <a href="https://t.me/Automation_Made_Easy_bot" target="_blank" rel="noopener" class="tg-bubble" style="display:inline-flex;margin:0;padding:10px 18px">
