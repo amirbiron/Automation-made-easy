@@ -600,6 +600,20 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
 }
 .ld-ok-cls:hover { border-color: rgba(255,255,255,.18); color: rgba(240,240,250,.8); }
 
+.ld-form-err {
+  display: none;
+  font-size: .78rem;
+  color: #F87171;
+  background: rgba(239,68,68,.07);
+  border: 1px solid rgba(239,68,68,.2);
+  border-radius: 10px;
+  padding: .55rem .85rem;
+  text-align: center;
+  line-height: 1.5;
+}
+.ld-form-err.show { display: block; }
+.ld-form-err a { color: #F87171; text-decoration: underline; }
+
 @media(max-width:600px) {
   .ld-row2 { grid-template-columns: 1fr; }
 }
@@ -1147,7 +1161,23 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
 
 <script>
 // ── LEAD FORM POPUP ──
+let ldSubmitted = false;
+function ldResetView() {
+  // Reset to the form view (called on reopen after a successful submit).
+  document.getElementById('ldFW').style.display = '';
+  const okEl = document.getElementById('ldOk');
+  okEl.classList.remove('on');
+  okEl.style.display = '';
+  const errEl = document.getElementById('ldErr');
+  if (errEl) errEl.classList.remove('show');
+  if (ldSubmitted) {
+    const f = document.getElementById('ldForm');
+    if (f) f.reset();
+    ldSubmitted = false;
+  }
+}
 function ldOpen()  {
+  ldResetView();
   document.getElementById('ldOv').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -1215,9 +1245,12 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!ok) return;
 
     const btn = document.getElementById('ldBtn');
+    const errEl = document.getElementById('ldErr');
     btn.classList.add('busy');
     btn.disabled = true;
+    if (errEl) errEl.classList.remove('show');
 
+    let succeeded = false;
     try {
       const r = await fetch('/api/lead', {
         method: 'POST',
@@ -1229,18 +1262,23 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       const d = await r.json();
       if (!d.ok) throw d;
+      succeeded = true;
     } catch (err) {
       console.warn('Lead submit error:', err);
     }
 
-    // הצגת מסך הצלחה
-    document.getElementById('ldFW').style.display = 'none';
-    const okEl = document.getElementById('ldOk');
-    okEl.style.display = 'flex';
-    requestAnimationFrame(() => okEl.classList.add('on'));
-
     btn.classList.remove('busy');
     btn.disabled = false;
+
+    if (succeeded) {
+      ldSubmitted = true;
+      document.getElementById('ldFW').style.display = 'none';
+      const okEl = document.getElementById('ldOk');
+      okEl.style.display = 'flex';
+      requestAnimationFrame(() => okEl.classList.add('on'));
+    } else if (errEl) {
+      errEl.classList.add('show');
+    }
   };
 
 });
@@ -1611,6 +1649,8 @@ startChat();
             <div class="ld-chk-t">אני מסכים/ה לקבל עדכונים ומבצעים</div>
           </label>
         </div>
+
+        <div class="ld-form-err" id="ldErr">⚠️ שליחה נכשלה. נסו שוב או <a href="https://wa.me/972526915503" target="_blank" rel="noopener">צרו קשר בוואטסאפ</a>.</div>
 
         <button type="submit" class="ld-btn" id="ldBtn">
           <span class="ld-btxt" style="display:flex;align-items:center;gap:.5rem">
