@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>הצהרת נגישות | אוטומציה בקלות</title>
+  <meta name="description" content="הצהרת הנגישות של אוטומציה בקלות — עמידה בתקן IS 5568 ו-WCAG 2.1 רמה AA.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://automation-bkala.co.il/accessibility.html">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07070F;
+      --bg2: #0C0C1A;
+      --t: #F0F0FA;
+      --m: rgba(240, 240, 250, .62);
+      --m2: rgba(240, 240, 250, .32);
+      --g: #25D366;
+      --pu: #8B5CF6;
+      --bl: #3B82F6;
+      --cb: rgba(255, 255, 255, .07);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--bg);
+      color: var(--t);
+      direction: rtl;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      height: 60px;
+      border-bottom: 1px solid var(--cb);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      background: rgba(7, 7, 15, .95);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+    }
+
+    .logo {
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: var(--t);
+      text-decoration: none
+    }
+
+    .logo em {
+      color: var(--g);
+      font-style: normal
+    }
+
+    .close-x {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      color: var(--m);
+      background: var(--cb);
+      border-radius: 10px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+
+    .close-x:hover {
+      color: #fff;
+      background: rgba(139, 92, 246, 0.15);
+      border-color: var(--pu);
+      transform: rotate(90deg);
+    }
+
+    .close-x svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .page {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 3.5rem 5% 6rem
+    }
+
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--cb)
+    }
+
+    .page-eyebrow {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--g);
+      margin-bottom: .8rem
+    }
+
+    .page-title {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      margin-bottom: .9rem
+    }
+
+    .page-meta {
+      font-size: .78rem;
+      color: var(--m2);
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap
+    }
+
+    .legal-body p {
+      font-size: .93rem;
+      line-height: 1.95;
+      color: var(--m);
+      margin-bottom: 1rem
+    }
+
+    .legal-body p:last-child {
+      margin-bottom: 0
+    }
+
+    .legal-section {
+      margin-bottom: 2.5rem
+    }
+
+    .legal-section h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--t);
+      margin-bottom: .9rem;
+      padding-bottom: .6rem;
+      border-bottom: 1px solid rgba(255, 255, 255, .05);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .sec-n {
+      font-size: .68rem;
+      font-weight: 700;
+      color: var(--g);
+      background: rgba(37, 211, 102, .1);
+      border: 1px solid rgba(37, 211, 102, .18);
+      padding: .15rem .55rem;
+      border-radius: 20px;
+    }
+
+    .legal-body ul {
+      padding-right: 1.2rem;
+      margin: .6rem 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: .45rem
+    }
+
+    .legal-body li {
+      font-size: .9rem;
+      color: var(--m);
+      line-height: 1.8;
+      list-style: disc;
+      padding-right: .2rem
+    }
+
+    .legal-body li::marker {
+      color: var(--g)
+    }
+
+    .legal-body strong {
+      color: var(--t);
+      font-weight: 600
+    }
+
+    .note {
+      background: rgba(245, 158, 11, .04);
+      border-right: 2px solid rgba(245, 158, 11, .35);
+      border-radius: 0 8px 8px 0;
+      padding: .8rem 1rem;
+      margin: .8rem 0 1.2rem
+    }
+
+    .note p {
+      font-size: .84rem !important;
+      margin-bottom: 0 !important;
+      color: rgba(240, 240, 250, .6) !important
+    }
+
+    .contact-line {
+      margin-top: 1.2rem;
+      padding: 1rem 1.1rem;
+      background: rgba(59, 130, 246, .04);
+      border: 1px solid rgba(59, 130, 246, .14);
+      border-radius: 10px;
+      font-size: .87rem;
+      color: var(--m);
+      line-height: 1.75
+    }
+
+    .contact-line a {
+      color: var(--g);
+      text-decoration: none;
+      font-weight: 600
+    }
+
+    .contact-line a:hover {
+      text-decoration: underline
+    }
+
+    .div {
+      height: 1px;
+      background: var(--cb);
+      margin: 2rem 0
+    }
+
+    .page-footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--cb);
+      font-size: .75rem;
+      color: var(--m2);
+    }
+    .page-footer p {
+      font-size: .75rem;
+      color: var(--m2);
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">אוטומציה<em> בקלות</em></a>
+    <a href="index.html" class="close-x" aria-label="חזרה לאתר">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </a>
+  </nav>
+
+  <div class="page">
+
+    <div class="page-header">
+      <div class="page-eyebrow">נגישות דיגיטלית</div>
+      <h1 class="page-title">הצהרת נגישות</h1>
+      <div class="page-meta">
+        <span>עדכון אחרון: ינואר 2025</span>
+        <span>IS 5568 · WCAG 2.1 · רמה AA</span>
+      </div>
+    </div>
+
+    <div class="legal-body">
+
+      <div class="legal-section">
+        <p>אוטומציה בקלות מחויבת לנגישות דיגיטלית מלאה. אנו מאמינים שכל בעל עסק, ללא קשר למוגבלויות, ראוי לקבל את אותה
+          רמת שירות.</p>
+        <p>הצהרה זו מפרטת את רמת הנגישות של האתר <strong>automation-bkala.co.il</strong> בהתאם לחוק שוויון זכויות לאנשים
+          עם מוגבלות, תשנ"ח–1998, ולתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), תשע"ג–2013.</p>
+      </div>
+
+      <div class="div"></div>
+
+      <div class="legal-section">
+        <h2><span class="sec-n">1</span>רמת הנגישות</h2>
+        <p>האתר עומד ב<strong>תקן הישראלי IS 5568</strong> ובהנחיות <strong>WCAG 2.1 ברמה AA</strong> ומיישם את עיקרי
+          ארבעת העמודים: ניתן לתפיסה, ניתן לתפעול, ניתן להבנה וחסון.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2><span class="sec-n">2</span>התאמות שבוצעו</h2>
+        <ul>
+          <li>האתר מותאם לכל גדלי המסכים, כולל מחשב, טאבלט וטלפון נייד</li>
+          <li>ניגודיות צבע של 4.5:1 לפחות בין טקסט לרקע, בהתאם לרמה AA</li>
+          <li>כל התמונות כוללות תיאור טקסטואלי חלופי (Alt Text)</li>
+          <li>ניווט מלא באמצעות מקלדת (Tab, Enter, Escape, חצים)</li>
+          <li>מבנה HTML סמנטי תקני עם heading hierarchy ו-ARIA labels</li>
+          <li>הטפסים באתר כוללים labels ברורים, הסברים והודעות שגיאה נגישות</li>
+          <li>האתר נקי מתוכן מהבהב מעל 3 פעמים בשנייה</li>
+          <li>שינוי גודל טקסט עד 200% ללא אובדן תוכן או פונקציונליות</li>
+          <li>קישורי ניווט מדלגים (Skip links) לתוכן הראשי</li>
+        </ul>
+      </div>
+
+      <div class="legal-section">
+        <h2><span class="sec-n">3</span>מגבלות ידועות</h2>
+        <p>למרות מאמצינו להנגשה מלאה, קיימות מגבלות שאנו עובדים לשפר:</p>
+        <ul>
+          <li>תכני וידאו מוטמעים מצד שלישי (YouTube) עשויים לא לכלול כתוביות בכל שפה</li>
+          <li>חלק מהאנימציות עשויות שלא לכבד הגדרת prefers-reduced-motion בכל הדפדפנים</li>
+        </ul>
+        <div class="note">
+          <p>נתקלת בבעיית נגישות שאינה מפורטת כאן? נשמח לדעת ולתקן — ראה פרטי יצירת קשר מטה.</p>
+        </div>
+      </div>
+
+      <div class="legal-section">
+        <h2><span class="sec-n">4</span>הסדרי הנגישות בשירות</h2>
+        <p>שירות אוטומציה בקלות ניתן <strong>בצורה מקוונת בלבד</strong> — דרך האתר, וואטסאפ וטלפון. <strong>אין קבלת קהל
+            פרונטלית, אין משרדים ואין סניפים פיזיים.</strong> כל השירות נגיש ממחשב, טאבלט או טלפון נייד ללא צורך בניידות
+          פיזית.</p>
+        <p style="font-size:.82rem;color:var(--m2);margin-top:.6rem">בהתאם לחוק — ארגון המונה פחות מ-25 עובדים אינו חייב
+          למנות רכז נגישות. כל פנייה בנושא תטופל ישירות על ידי הנהלת החברה.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2><span class="sec-n">5</span>פנייה בנוגע לנגישות</h2>
+        <p>נתקלת בתוכן שאינו נגיש? אנא פנה אלינו ונטפל בהקדם:</p>
+        <div class="contact-line">
+          וואטסאפ: <a href="https://wa.me/972526915503">052-691-5503</a><br>
+          <span style="font-size:.8rem;color:var(--m2)">נחזור אליך תוך 3 ימי עסקים</span>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <p>הצהרה זו עדכנית לתאריך <strong>ינואר 2025</strong>. אנו מבצעים בדיקת נגישות אחת לשנה ומעדכנים בהתאם.</p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
