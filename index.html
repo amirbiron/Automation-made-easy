@@ -1160,6 +1160,7 @@ footer{background:var(--bg2);border-top:1px solid var(--cb);padding:3.5rem 6% 2r
 <script>
 // ── LEAD FORM POPUP ──
 let ldSubmitted = false;
+let ldEpoch = 0;
 function ldResetView() {
   // Reset to the form view (called on reopen after a successful submit).
   document.getElementById('ldFW').style.display = '';
@@ -1168,6 +1169,11 @@ function ldResetView() {
   okEl.style.display = '';
   const errEl = document.getElementById('ldErr');
   if (errEl) errEl.classList.remove('show');
+  const btn = document.getElementById('ldBtn');
+  if (btn) {
+    btn.classList.remove('busy');
+    btn.disabled = false;
+  }
   if (ldSubmitted) {
     const f = document.getElementById('ldForm');
     if (f) f.reset();
@@ -1175,11 +1181,13 @@ function ldResetView() {
   }
 }
 function ldOpen()  {
+  ldEpoch++;
   ldResetView();
   document.getElementById('ldOv').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 function ldClose() {
+  ldEpoch++;
   document.getElementById('ldOv').classList.remove('open');
   document.body.style.overflow = '';
 }
@@ -1199,7 +1207,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // ולידציה — טלפון ישראלי
   function _lp(v) {
     const c = v.replace(/[-\s]/g, '');
-    return /^0(5[0-9]|[234679])\d{7,8}$/.test(c) || /^\+972\d{8,9}$/.test(c);
+    return /^0(5[0-9]|[2346789])\d{7,8}$/.test(c) || /^\+972\d{8,9}$/.test(c);
   }
 
   // סימון שגיאה על שדה
@@ -1248,6 +1256,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.disabled = true;
     if (errEl) errEl.classList.remove('show');
 
+    const myEpoch = ldEpoch;
     let succeeded = false;
     try {
       const r = await fetch('/api/lead', {
@@ -1264,6 +1273,10 @@ document.addEventListener('DOMContentLoaded', function () {
     } catch (err) {
       console.warn('Lead submit error:', err);
     }
+
+    // If the user closed/reopened the modal mid-flight, drop this result —
+    // the view has already been reset and we shouldn't override it.
+    if (myEpoch !== ldEpoch) return;
 
     btn.classList.remove('busy');
     btn.disabled = false;
