@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ספר, קוסמטיקאית, מאמן אישי — למה לכם צ'אטבוט ולא רק לחברות הגדולות | אוטומציה בקלות</title>
+<meta name="description" content="הרבה בעלי עסקים קטנים חושבים שצ'אטבוט זה לבנקים ולאמזון. הם טועים. ואם אתה ספר, קוסמטיקאית או מאמן אישי — יש לך סיבות טובות יותר משלהם להשתמש בבוט.">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #181c27;
+    --surface2: #1f2437;
+    --border: #2c3349;
+    --accent: #3b82f6;
+    --accent-light: #60a5fa;
+    --green: #34d399;
+    --orange: #fb923c;
+    --purple: #a78bfa;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --text-dim: #4b5563;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Heebo', sans-serif;
+    font-size: 18.5px;
+    line-height: 1.85;
+  }
+
+  .hero {
+    background: linear-gradient(160deg, #1a2744 0%, #0f1117 60%);
+    border-bottom: 1px solid var(--border);
+    padding: 64px 24px 52px;
+    text-align: center;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(59,130,246,0.15);
+    color: var(--accent-light);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(59,130,246,0.3);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(26px, 5vw, 46px);
+    font-weight: 900;
+    line-height: 1.25;
+    max-width: 820px;
+    margin: 0 auto 20px;
+    color: #fff;
+  }
+
+  .hero h1 span { color: var(--accent-light); }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 13px;
+    color: var(--text-dim);
+    flex-wrap: wrap;
+  }
+
+  .hero-meta span { display: flex; align-items: center; gap: 5px; }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 52px 24px 80px;
+  }
+
+  p { margin-bottom: 22px; color: var(--text-muted); }
+  p strong { color: var(--text); font-weight: 600; }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text);
+    margin: 52px 0 18px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--accent-light);
+    margin: 32px 0 12px;
+  }
+
+  .scene {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin: 36px 0;
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.9;
+    position: relative;
+  }
+
+  .scene::before {
+    content: '"';
+    position: absolute;
+    top: -8px;
+    right: 20px;
+    font-size: 64px;
+    color: var(--accent);
+    opacity: 0.2;
+    font-style: normal;
+    line-height: 1;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin: 36px 0;
+  }
+
+  .stat-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 20px;
+    text-align: center;
+  }
+
+  .stat-box .num {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--accent-light);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-box .lbl { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+
+  /* PROFILE CARD — חדש לשבוע 3 */
+  .profile-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 30px;
+    margin: 28px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: 0 14px 14px 0;
+  }
+
+  .profile-card.barber::before { background: var(--accent); }
+  .profile-card.cosmo::before { background: var(--purple); }
+  .profile-card.coach::before { background: var(--green); }
+
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .profile-emoji {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .profile-card.barber .profile-emoji { background: rgba(59,130,246,0.15); }
+  .profile-card.cosmo .profile-emoji { background: rgba(167,139,250,0.15); }
+  .profile-card.coach .profile-emoji { background: rgba(52,211,153,0.15); }
+
+  .profile-name {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+
+  .profile-role {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+
+  .profile-pain {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  .profile-solution {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .profile-solution-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .sol-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-weight: 700;
+  }
+
+  .profile-card.barber .sol-dot { background: rgba(59,130,246,0.2); color: var(--accent-light); }
+  .profile-card.cosmo .sol-dot { background: rgba(167,139,250,0.2); color: var(--purple); }
+  .profile-card.coach .sol-dot { background: rgba(52,211,153,0.2); color: var(--green); }
+
+  /* MYTH BLOCK */
+  .myth-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 36px 0;
+  }
+
+  .myth-side {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px;
+  }
+
+  .myth-side .m-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .myth-side.myth { border-top: 3px solid #ef4444; }
+  .myth-side.myth .m-label { color: #ef4444; }
+  .myth-side.reality { border-top: 3px solid var(--green); }
+  .myth-side.reality .m-label { color: var(--green); }
+
+  .myth-side p {
+    font-size: 14.5px;
+    margin-bottom: 0;
+    line-height: 1.7;
+  }
+
+  .stage-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-right: 4px solid var(--accent);
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin: 36px 0;
+  }
+
+  .stage-block .s-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 10px;
+  }
+
+  .stage-block .s-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .stage-block p { margin-bottom: 0; font-size: 15.5px; }
+
+  .alert {
+    display: flex;
+    gap: 14px;
+    padding: 20px 22px;
+    border-radius: 10px;
+    margin: 28px 0;
+    align-items: flex-start;
+  }
+
+  .alert-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+  .alert-body { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
+  .alert-body strong { color: var(--text); }
+
+  .alert-tip { background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2); }
+  .alert-fact { background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.2); }
+  .alert-warn { background: rgba(251,146,60,0.08); border: 1px solid rgba(251,146,60,0.2); }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 44px 0; }
+
+  .summary-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .summary-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 15.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .summary-list li .check {
+    width: 22px;
+    height: 22px;
+    background: rgba(52,211,153,0.15);
+    border: 1px solid rgba(52,211,153,0.3);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: var(--green);
+  }
+
+  .cta-block {
+    background: linear-gradient(135deg, #1e3a5f 0%, #1a2744 100%);
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 16px;
+    padding: 40px 36px;
+    text-align: center;
+    margin: 56px 0 0;
+  }
+
+  .cta-block h3 { font-size: 22px; font-weight: 800; color: #fff; margin: 0 0 12px; }
+  .cta-block p { font-size: 15px; margin-bottom: 28px; color: var(--text-muted); }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: 'Heebo', sans-serif;
+    transition: background 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .cta-btn:hover { background: var(--accent-light); }
+
+  .post-footer {
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .author-box { display: flex; align-items: center; gap: 12px; }
+
+  .author-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #7c3aed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .author-name { font-size: 14px; font-weight: 700; color: var(--text); }
+  .author-role { font-size: 12px; color: var(--text-dim); }
+  .tags-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .post-tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  .copy-wrap { position: fixed; bottom: 28px; left: 28px; z-index: 200; }
+
+  .copy-fab {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 22px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Heebo', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(59,130,246,0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .copy-fab:hover { background: var(--accent-light); transform: scale(1.04); }
+
+  #copy-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  .modal-inner {
+    background: #181c27;
+    border: 1px solid #2c3349;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 600px;
+    padding: 24px;
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+
+  .modal-header span { font-size: 14px; font-weight: 700; color: #e2e8f0; }
+
+  .modal-close {
+    background: #2c3349;
+    border: none;
+    color: #94a3b8;
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  #copy-ta {
+    width: 100%;
+    height: 320px;
+    background: #0f1117;
+    border: 1px solid #2c3349;
+    border-radius: 8px;
+    color: #e2e8f0;
+    font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    padding: 14px;
+    resize: none;
+    direction: rtl;
+    text-align: right;
+    outline: none;
+  }
+
+  .modal-hint { margin-top: 10px; font-size: 12px; color: #4b5563; text-align: center; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 44px 16px 36px; }
+    .container { padding: 36px 16px 60px; }
+    .scene, .profile-card, .cta-block { padding: 22px 18px; }
+    .myth-block { grid-template-columns: 1fr; }
+    h2 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav style="position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:rgba(15,17,23,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);z-index:50">
+  <a href="../" style="font-size:18px;font-weight:900;letter-spacing:-.5px;color:#fff;text-decoration:none">אוטומציה<span style="font-weight:300"> בקלות</span></a>
+  <a href="../" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text-muted);font-weight:600;padding:7px 14px;border-radius:20px;border:1px solid var(--border);text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='rgba(59,130,246,.4)';this.style.color='#60a5fa'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    חזרה לעמוד הראשי
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">עסקים קטנים · אוטומציה</div>
+  <h1>ספר, קוסמטיקאית, מאמן אישי —<br><span>למה לכם צ'אטבוט ולא רק לחברות הגדולות</span></h1>
+  <p class="hero-sub">הרבה בעלי עסקים קטנים חושבים שצ'אטבוט זה לבנקים ולאמזון. הם טועים. ובעצם יש להם יותר סיבות לרצות בוט מאשר לחברות הגדולות.</p>
+  <div class="hero-meta">
+    <span>✍️ אוטומציה בקלות</span>
+    <span>📖 6 דקות קריאה</span>
+    <span>🏷️ ספרה, קוסמטיקה, מאמן אישי, אוטומציה</span>
+  </div>
+</div>
+
+<!-- ARTICLE -->
+<div class="container">
+
+  <!-- MYTH -->
+  <h2>💥 המיתוס שצריך לשבור</h2>
+
+  <p>כשמישהו אומר "צ'אטבוט" — רוב האנשים חושבים על הצ'אט הקטן שצץ בפינה של אתרי בנקים, או על מוקד שירות של חברת סלולר שמנסה למנוע ממך לדבר עם אנשי אנוש.</p>
+
+  <p>זה הצ'אטבוט של לפני עשר שנים. <strong>הוא לא רלוונטי לשיחה הזו.</strong></p>
+
+  <div class="myth-block">
+    <div class="myth-side myth">
+      <div class="m-label">❌ המיתוס</div>
+      <p>צ'אטבוט זה לחברות גדולות עם מאות פניות ביום, צוותי IT, ותקציבי טכנולוגיה ענקיים. לעסק קטן זה מיותר ויקר מדי.</p>
+    </div>
+    <div class="myth-side reality">
+      <div class="m-label">✅ המציאות</div>
+      <p>עסק קטן מקבל בין 20 ל-80 פניות בשבוע, רובן חוזרות על עצמן. בוט שעונה על השאלות האלה חוסך שעות עבודה בשבוע — בפחות ממה שעולה שעת עבודה.</p>
+    </div>
+  </div>
+
+  <div class="alert alert-fact">
+    <span class="alert-icon">📊</span>
+    <div class="alert-body"><strong>עובדה שמפתיעה:</strong> עסקים קטנים מרוויחים יותר מבוט מאשר חברות גדולות. הסיבה פשוטה — בחברה גדולה יש נציגים שיענו. בעסק קטן, בעל העסק הוא הנציג. כל שאלה שהבוט ענה עליה היא דקה שהוא חזר לעסק שלו.</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- WHY SMALL -->
+  <h2>🏪 למה עסקים קטנים צריכים את זה יותר</h2>
+
+  <p>בחברה גדולה, בוט טוב חוסך כסף. בעסק קטן, בוט טוב <strong>מחזיר לך את החיים.</strong></p>
+
+  <p>בעל עסק קטן הוא בו-זמנית: מנהל, מבצע, איש מכירות, שירות לקוחות, רואה חשבון וסוכן שיווק. כל שאלה שמגיעה לוואטסאפ מושכת אותו מהמשימה שהוא עושה ברגע נתון.</p>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="num">23</div>
+      <div class="lbl">דקות לחזור לריכוז אחרי הפרעה, בממוצע</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">40%</div>
+      <div class="lbl">מהפניות הן שאלות שחוזרות על עצמן בדיוק</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">3 שעות</div>
+      <div class="lbl">שמפסיד בעל עסק ממוצע בשבוע על מענה ידני</div>
+    </div>
+  </div>
+
+  <p>עכשיו בואו ניקח שלושה סוגי עסקים ונראה איך זה נראה בפועל.</p>
+
+  <hr class="divider">
+
+  <!-- BARBER -->
+  <h2>✂️ ספר / מספרה</h2>
+
+  <div class="scene">
+    יום שני בבוקר. דוד פותח את המספרה ב-9:00.<br><br>
+    עד 9:30 כבר יש לו 11 הודעות בוואטסאפ.<br>
+    7 מהן שאלות על מחיר. 3 על זמינות. אחת על כתובת.<br><br>
+    הוא עונה לכולן. לוקח לו 25 דקות.<br>
+    זה קורה כל בוקר.
+  </div>
+
+  <div class="profile-card barber">
+    <div class="profile-header">
+      <div class="profile-emoji">✂️</div>
+      <div>
+        <div class="profile-name">דוד — מספרה, 1 עובד</div>
+        <div class="profile-role">80-100 לקוחות בחודש · וואטסאפ כערוץ ראשי</div>
+      </div>
+    </div>
+    <div class="profile-pain">"אני עונה כל בוקר לאותן שאלות. כמה עולה תספורת? יש מקום ב-4? איפה אתם? אני יודע אותן בעל פה אבל עדיין צריך לרשום."</div>
+    <div class="profile-solution">
+      <div class="profile-solution-item">
+        <span class="sol-dot">✓</span>
+        <span>הבוט עונה על מחירון, זמינות וכתובת — 24/7, בלי שדוד זזה מהכיסא</span>
+      </div>
+      <div class="profile-solution-item">
+        <span class="sol-dot">✓</span>
+        <span>לקוח בוחר תור מלוח הזמינות — אישור אוטומטי ותזכורת יום לפני</span>
+      </div>
+      <div class="profile-solution-item">
+        <span class="sol-dot">✓</span>
+        <span>דוד מגיע בבוקר ורואה את לוח היום מסודר — בלי לבדוק הודעות</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-tip">
+    <span class="alert-icon">💡</span>
+    <div class="alert-body"><strong>טיפ לספרות:</strong> הפיצ'ר הכי שימושי הוא ביטול ושינוי תור ע"י הלקוח. מחקרים מראים שעסקים שמאפשרים ביטול עצמאי — מקבלים פחות no-shows, כי הלקוח לא מתבייש לבטל.</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- COSMO -->
+  <h2>💅 קוסמטיקאית / אסתטיקאית</h2>
+
+  <div class="scene">
+    מיכל מטפלת בלקוחה. הטלפון מתנדנד.<br><br>
+    לקוחה חדשה שואלת: "יש לך טיפול לעור רגיש? מה הרכיבים? יש לי אלרגיה לניקל."<br><br>
+    מיכל לא יכולה לענות. היא באמצע טיפול.<br>
+    עד שהיא תגמור ותענה — הלקוחה כבר מצאה מישהי אחרת.
+  </div>
+
+  <div class="profile-card cosmo">
+    <div class="profile-header">
+      <div class="profile-emoji">💅</div>
+      <div>
+        <div class="profile-name">מיכל — קוסמטיקאית, עצמאית</div>
+        <div class="profile-role">40-60 טיפולים בחודש · לקוחות חוזרות + חדשות</div>
+      </div>
+    </div>
+    <div class="profile-pain">"כשאני בטיפול אני לא יכולה לענות. ואחרי שאני גומרת — לקוחות שואלות שאלות שאפשר לענות עליהן בצ'ק-בוקס."</div>
+    <div class="profile-solution">
+      <div class="profile-solution-item">
+        <span class="sol-dot">✓</span>
+        <span>הבוט עונה על שאלות מוצר, רכיבים ומתאים לסוג עור — מבסיס הידע של מיכל</span>
+      </div>
+      <div class="profile-solution-item">
+        <span class="sol-dot">✓</span>
+        <span>הכנה לטיפול — הבוט שולח הנחיות אוטומטית יום לפני (לא לאכול, לא להתאפר)</span>
+      </div>
+      <div class="profile-solution-item">
+        <span class="sol-dot">✓</span>
+        <span>שאלות רקע קליניות נשלחות ונשמרות לפני הביקור הראשון — מיכל מגיעה מוכנה</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-warn">
+    <span class="alert-icon">⚠️</span>
+    <div class="alert-body"><strong>חשוב לדעת:</strong> שאלות רפואיות מורכבות — אלרגיות ספציפיות, תרופות, מצבים רפואיים — הבוט מזהה ומעביר ישירות למיכל. הוא לא מנסה לענות על מה שמחוץ לסמכותו.</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- COACH -->
+  <h2>🧠 מאמן אישי / מטפל</h2>
+
+  <div class="scene">
+    יובל מאמן אישי. הוא בשיחה עם לקוח.<br><br>
+    בינתיים, מישהי חדשה שלחה הודעה: "שמעתי עליך. מה אתה מציע? כמה עולה? אפשר שיחה ראשונה?"<br><br>
+    יובל יגמור בעוד 40 דקות. עד אז — הודעה אחת שעונה על הכל, ושואלת מה המטרה שלה. ואם היא לא תענה? הפרטים שלה נשמרים.
+  </div>
+
+  <div class="profile-card coach">
+    <div class="profile-header">
+      <div class="profile-emoji">🧠</div>
+      <div>
+        <div class="profile-name">יובל — מאמן אישי, עצמאי</div>
+        <div class="profile-role">15-25 לקוחות פעילים · הכנסה מחבילות ומשיחות</div>
+      </div>
+    </div>
+    <div class="profile-pain">"אני מפסיד לידים כי כשאני בשיחה אני לא זמין. עד שאני חוזר — הם כבר לא חמים."</div>
+    <div class="profile-solution">
+      <div class="profile-solution-item">
+        <span class="sol-dot">✓</span>
+        <span>הבוט מציג חבילות, מחירים ותהליך — לקוח מגיע לשיחה הראשונה כבר מעודכן</span>
+      </div>
+      <div class="profile-solution-item">
+        <span class="sol-dot">✓</span>
+        <span>שאלות ממיין ראשוני: מה המטרה? איפה אתה עומד? מה ניסית עד היום? — יובל מגיע מוכן</span>
+      </div>
+      <div class="profile-solution-item">
+        <span class="sol-dot">✓</span>
+        <span>ליד שלא ענה? הבוט חוזר אליו יום אחרי עם הודעה קצרה. אוטומטית, ממוקדת.</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- COMMON -->
+  <h2>🔗 מה המשותף לכולם</h2>
+
+  <p>דוד, מיכל ויובל עוסקים בתחומים שונים לגמרי. אבל יש להם דבר אחד משותף שהופך אותם לסוג העסק שנהנה הכי הרבה מבוט:</p>
+
+  <div class="stage-block">
+    <div class="s-label">הדבר המשותף</div>
+    <div class="s-title">הם מוכרים זמן אישי — ואין להם ממנו עודף</div>
+    <p>כשרופא מוכר תרופה, הוא לא נמצא שם בזמן שהתרופה עובדת. כשדוד גוזז, מיכל מטפלת ויובל מאמן — הם שם, נוכחים פיזית. לכן כל דקה שנחסכת על שאלות חוזרות היא דקה שחזרה לידיים שלהם.</p>
+  </div>
+
+  <p>הצ'אטבוט לא מחליף את הקשר האישי שלהם עם הלקוחות — הוא מאפשר להם להשקיע אותו במקום הנכון. <strong>בטיפול עצמו. בשיחה עצמה. בתספורת עצמה.</strong></p>
+
+  <h3>סיכום — מה כל סוג עסק מרוויח</h3>
+
+  <ul class="summary-list">
+    <li>
+      <span class="check">✓</span>
+      <span><strong>ספרה / מספרה:</strong> 25 דקות פחות ביום על הודעות בוואטסאפ. לוח תורים מסודר. אפס שאלות חוזרות על מחיר וזמינות.</span>
+    </li>
+    <li>
+      <span class="check">✓</span>
+      <span><strong>קוסמטיקאית / אסתטיקאית:</strong> לקוחות מגיעות מוכנות. פחות שאלות בזמן טיפול. הנחיות הכנה נשלחות אוטומטית.</span>
+    </li>
+    <li>
+      <span class="check">✓</span>
+      <span><strong>מאמן / מטפל:</strong> לידים לא הולכים לאיבוד בשעות שיחה. לקוחות חדשים מגיעים לשיחה ראשונה כבר מעודכנים ומסוננים.</span>
+    </li>
+    <li>
+      <span class="check">✓</span>
+      <span><strong>כולם:</strong> שעות הלילה וסופי שבוע מכוסים. בוט שאינו עוצר — ובעל עסק שיכול לנוח.</span>
+    </li>
+  </ul>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h3>רוצה לראות איך זה עובד לעסק שלך?</h3>
+    <p>הדגמה חינמית של 15 דקות, מותאמת לסוג העסק שלך. מראים לך בדיוק מה הבוט עונה, ואיך זה נראה מנקודת המבט של הלקוח.</p>
+    <a href="https://wa.me/972526915503?text=%D7%94%D7%99%D7%99%21%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%90%D7%9E%D7%A8%20%D7%A2%D7%9C%20%D7%A6%27%D7%90%D7%98%D7%91%D7%95%D7%98%20%D7%9C%D7%A2%D7%A1%D7%A7%D7%99%D7%9D%20%D7%A7%D7%98%D7%A0%D7%99%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%91%D7%94%D7%93%D7%92%D7%9E%D7%94" target="_blank" rel="noopener" class="cta-btn">לתיאום הדגמה חינמית</a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="post-footer">
+    <div class="author-box">
+      <div class="author-avatar">🤖</div>
+      <div>
+        <div class="author-name">אוטומציה בקלות</div>
+        <div class="author-role">בוטים לעסקים קטנים ובינוניים</div>
+      </div>
+    </div>
+    <div class="tags-row">
+      <span class="post-tag">ספרה</span>
+      <span class="post-tag">קוסמטיקה</span>
+      <span class="post-tag">מאמן אישי</span>
+      <span class="post-tag">צ'אטבוט</span>
+      <span class="post-tag">אוטומציה</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- COPY FAB -->
+<div class="copy-wrap">
+  <button class="copy-fab" onclick="openCopyModal()">📋 העתק מאמר</button>
+</div>
+
+<!-- COPY MODAL -->
+<div id="copy-modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-inner">
+    <div class="modal-header">
+      <span>📋 סמן הכל והעתק — Ctrl+A ← Ctrl+C</span>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <textarea id="copy-ta" readonly onclick="this.select()"></textarea>
+    <div class="modal-hint">לחץ על הטקסט ← Ctrl+A ← Ctrl+C</div>
+  </div>
+</div>
+
+<script>
+  const articleText = `כותרת: ספר, קוסמטיקאית, מאמן אישי — למה לכם צ'אטבוט ולא רק לחברות הגדולות
+
+תגית: עסקים קטנים · אוטומציה
+זמן קריאה: 6 דקות
+תגיות SEO: צ'אטבוט לספרה, אוטומציה לקוסמטיקאית, מאמן אישי דיגיטל, בוט לעסק קטן
+
+---
+
+המיתוס שצריך לשבור
+
+כשמישהו אומר "צ'אטבוט" — רוב האנשים חושבים על הצ'אט של בנקים וחברות סלולר.
+זה הצ'אטבוט של לפני עשר שנים. הוא לא רלוונטי לשיחה הזו.
+
+המיתוס: צ'אטבוט זה לחברות גדולות עם מאות פניות ביום.
+המציאות: עסק קטן מקבל 20-80 פניות בשבוע, רובן חוזרות. בוט שעונה עליהן חוסך שעות עבודה שבועיות.
+
+עובדה: עסקים קטנים מרוויחים יותר מבוט מאשר חברות גדולות.
+בחברה גדולה יש נציגים. בעסק קטן — בעל העסק הוא הנציג. כל שאלה שהבוט ענה = דקה שחזרה לעסק.
+
+---
+
+מספרי המפתח
+
+• 23 דקות — זמן ממוצע לחזור לריכוז אחרי הפרעה
+• 40% מהפניות הן שאלות שחוזרות על עצמן בדיוק
+• 3 שעות בשבוע — מה מפסיד בעל עסק ממוצע על מענה ידני
+
+---
+
+ספר / מספרה — דוד
+
+הבעיה: כל בוקר 25 דקות על אותן שאלות — מחיר, זמינות, כתובת.
+
+הפתרון:
+• הבוט עונה על מחירון, זמינות וכתובת 24/7
+• לקוח בוחר תור מלוח הזמינות — אישור אוטומטי + תזכורת יום לפני
+• דוד מגיע בבוקר ורואה לוח יום מסודר, בלי לבדוק הודעות
+
+טיפ: עסקים שמאפשרים ביטול עצמאי מקבלים פחות no-shows.
+
+---
+
+קוסמטיקאית / אסתטיקאית — מיכל
+
+הבעיה: כשהיא בטיפול היא לא יכולה לענות. לקוחות חדשות עוברות הלאה.
+
+הפתרון:
+• הבוט עונה על שאלות מוצר, רכיבים וסוג עור — מבסיס הידע של מיכל
+• הכנה לטיפול — הנחיות נשלחות אוטומטית יום לפני
+• שאלות קליניות נשמרות לפני הביקור הראשון — מיכל מגיעה מוכנה
+
+חשוב: שאלות רפואיות מורכבות — הבוט מעביר ישירות למיכל.
+
+---
+
+מאמן אישי / מטפל — יובל
+
+הבעיה: כשהוא בשיחה הוא לא זמין. לידים מתקררים.
+
+הפתרון:
+• הבוט מציג חבילות ומחירים — לקוח מגיע לשיחה כבר מעודכן
+• שאלות ממיין ראשוני — יובל מגיע מוכן לשיחה
+• ליד שלא ענה? הבוט חוזר אליו יום אחרי אוטומטית
+
+---
+
+מה המשותף לכולם
+
+דוד, מיכל ויובל מוכרים זמן אישי — ואין להם ממנו עודף.
+הצ'אטבוט לא מחליף את הקשר האישי שלהם. הוא מאפשר להם להשקיע אותו במקום הנכון.
+
+סיכום:
+• ספרה: 25 דקות פחות ביום על הודעות. לוח מסודר.
+• קוסמטיקאית: לקוחות מגיעות מוכנות. הנחיות אוטומטיות.
+• מאמן: לידים לא הולכים לאיבוד. לקוחות מגיעים מסוננים.
+• כולם: שעות לילה וסופי שבוע מכוסים.
+
+---
+
+CTA: רוצה לראות איך זה עובד לעסק שלך? הדגמה חינמית של 15 דקות.
+
+תגיות: ספרה, קוסמטיקה, מאמן אישי, צ'אטבוט, אוטומציה`;
+
+  function openCopyModal() {
+    const modal = document.getElementById('copy-modal');
+    const ta = document.getElementById('copy-ta');
+    ta.value = articleText;
+    modal.style.display = 'flex';
+    setTimeout(() => { ta.focus(); ta.select(); }, 80);
+  }
+
+  function closeModal() {
+    document.getElementById('copy-modal').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
