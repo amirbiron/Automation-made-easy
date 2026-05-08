@@ -28,7 +28,7 @@
     background: var(--bg);
     color: var(--text);
     font-family: 'Heebo', sans-serif;
-    font-size: 17px;
+    font-size: 18.5px;
     line-height: 1.85;
   }
 
@@ -54,10 +54,10 @@
   }
 
   .hero h1 {
-    font-size: clamp(22px, 4.5vw, 38px);
+    font-size: clamp(26px, 5vw, 46px);
     font-weight: 900;
     line-height: 1.25;
-    max-width: 740px;
+    max-width: 820px;
     margin: 0 auto 20px;
     color: #fff;
   }
@@ -85,7 +85,7 @@
   .hero-meta span { display: flex; align-items: center; gap: 5px; }
 
   .container {
-    max-width: 740px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 52px 24px 80px;
   }
@@ -430,48 +430,6 @@
     color: var(--green);
   }
 
-  .toc {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px 28px;
-    margin-bottom: 44px;
-  }
-
-  .toc-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text-dim);
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-
-  .toc ol {
-    list-style: none;
-    counter-reset: toc;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .toc ol li {
-    counter-increment: toc;
-    font-size: 14px;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .toc ol li::before {
-    content: counter(toc, decimal-leading-zero);
-    font-size: 11px;
-    color: var(--accent);
-    font-weight: 700;
-    min-width: 22px;
-  }
-
   .cta-block {
     background: linear-gradient(135deg, #1e3a5f 0%, #1a2744 100%);
     border: 1px solid rgba(59,130,246,0.3);
@@ -632,6 +590,15 @@
 </head>
 <body>
 
+<!-- TOP NAV -->
+<nav style="position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:rgba(15,17,23,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);z-index:50">
+  <a href="../" style="font-size:18px;font-weight:900;letter-spacing:-.5px;color:#fff;text-decoration:none">אוטומציה<span style="font-weight:300"> בקלות</span></a>
+  <a href="../" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text-muted);font-weight:600;padding:7px 14px;border-radius:20px;border:1px solid var(--border);text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='rgba(59,130,246,.4)';this.style.color='#60a5fa'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    חזרה לעמוד הראשי
+  </a>
+</nav>
+
 <!-- HERO -->
 <div class="hero">
   <div class="hero-tag">הזמנת תורים · מדריך מעשי</div>
@@ -646,19 +613,6 @@
 
 <!-- ARTICLE -->
 <div class="container">
-
-  <nav class="toc">
-    <div class="toc-title">תוכן העניינים</div>
-    <ol>
-      <li>הבעיה שכולם מכירים</li>
-      <li>ככה זה נראה מנקודת הלקוח</li>
-      <li>השיחה המלאה — מוק אמיתי</li>
-      <li>מה בעל העסק רואה בצד שלו</li>
-      <li>ביטול ושינוי — בלי להתקשר</li>
-      <li>תזכורות אוטומטיות — פחות no-shows</li>
-      <li>חיבור לגוגל קלנדר</li>
-    </ol>
-  </nav>
 
   <!-- OPENING -->
   <h2>😤 הבעיה שכולם מכירים</h2>
@@ -966,7 +920,7 @@
   <div class="cta-block">
     <h3>רוצה לראות את זה בפעולה?</h3>
     <p>הדגמה חינמית של 15 דקות — מראים לך את כל הזרימה בשידור חי, עם שם העסק שלך ושירותים אמיתיים.</p>
-    <button class="cta-btn">לתיאום הדגמה חינמית</button>
+    <a href="https://wa.me/972526915503?text=%D7%94%D7%99%D7%99%21%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%93%D7%A8%D7%99%D7%9A%20%D7%A2%D7%9C%20%D7%94%D7%96%D7%9E%D7%A0%D7%AA%20%D7%AA%D7%95%D7%A8%D7%99%D7%9D%20%D7%91%D7%95%D7%95%D7%90%D7%98%D7%A1%D7%90%D7%A4%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%91%D7%94%D7%93%D7%92%D7%9E%D7%94" target="_blank" rel="noopener" class="cta-btn">לתיאום הדגמה חינמית</a>
   </div>
 
   <!-- FOOTER -->
